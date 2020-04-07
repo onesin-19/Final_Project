@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class PlayerManager : Flow {
     #region Singleton
@@ -87,8 +88,9 @@ public class PlayerManager : Flow {
             {
                 firstChild.transform.GetChild(i).gameObject.SetActive(false);
             }
-            
-            
+
+            player.GetComponent<FirstPersonController>().UnlockMouse();
+            player.GetComponent<FirstPersonController>().enabled = false;
             //MonoBehaviour.StartCoroutine(GameOver());
         }
     }

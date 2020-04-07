@@ -11,7 +11,7 @@ public class SpawnScript : MonoBehaviour {
     void Update () {
 
         float distance = Vector3.Distance(Player.transform.position, transform.position);
-        Debug.Log(distance);
+        //Debug.Log(distance);
         if(distance < DistanceSpawn && Time.time>NextSpawn)
         {
             NextSpawn = Time.time + SpawnRate;

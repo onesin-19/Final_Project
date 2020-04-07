@@ -81,7 +81,7 @@ public class UIManager : Flow {
         ImLife.fillAmount = PlayerStats.Hp / 100;
         this.lifeUItxt.text = "VIE " + PlayerStats.Hp + "%";
         this.missionUI.text = "MISSION : TROUVER LA CLEF POUR SORTIR VIVANT !!!" ;
-        this.PseudoUI.text = "Pseudo : ";
+        this.PseudoUI.text = "Pseudo : "+DB_Manager.Instance.IPseudo;
         this.leaderBoard.text = "";
     }
 

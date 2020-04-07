@@ -85,7 +85,8 @@ public class Main : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
         if (SceneManager.GetActiveScene().name == "menu")
         {
-            currentFlow = menuFlow;
+            currentFlow = game;
+            isInMenuScene = false;
         }
         else if (SceneManager.GetActiveScene().name == "level1")
         {
@@ -140,15 +141,15 @@ public class Main : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         currentSceneName = scene.name;
-
-        if (!isInMenuScene)
+        currentFlow = game;
+        /*if (!isInMenuScene)
         {
             currentFlow = game;
         }
         else
         {
             currentFlow = menuFlow;
-        }
+        }*/
         //Make sure this is called only once.
         if (currentSceneName != lastSceneName&&!PlayerStats.IsPlayerDead)
         {

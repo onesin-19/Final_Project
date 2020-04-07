@@ -38,6 +38,7 @@ public class MenuFlow : Flow
 
     override public void PreInitialize()
     {
+        Debug.Log("");
         //Grab instances
         //playerManager = PlayerManager.Instance;
 

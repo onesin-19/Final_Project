@@ -49,7 +49,6 @@ public class ChoiceStartScene : MonoBehaviour
     {
         DB_Manager.Instance.IPseudo = dropdownbox.options[dropdownbox.value].text;
         SceneManager.LoadScene("menu");
-        infosPlayer info=new infosPlayer();
         connectUsers.activePlayer(dropdownbox.options[dropdownbox.value].text);//.users[0].isPlay = true;
     }
 

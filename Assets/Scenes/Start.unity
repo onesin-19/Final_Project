@@ -1912,7 +1912,7 @@ MonoBehaviour:
   IPrenom: 
   IEmail: 
   IPoints: 0
-  connectUsers: {fileID: 0}
+  connectUsers: {fileID: 11400000, guid: e6affd903b7cdeb468bcf9e4e31437f9, type: 2}
 --- !u!4 &1815336246
 Transform:
   m_ObjectHideFlags: 0

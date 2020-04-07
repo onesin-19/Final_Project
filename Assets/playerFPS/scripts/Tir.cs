@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Tir : MonoBehaviour {
 
-    public AudioClip SoundShoot, SoundReload, SoundEmpty;
+    public AudioClip SoundShoot, SoundReload, SoundEmpty,soundExplosion;
     private Ray ray;
     private RaycastHit hit;
     public float shootRate=1f;
@@ -12,7 +12,7 @@ public class Tir : MonoBehaviour {
     public GameObject BulletHolePrefab, SparksPrefab;
     public bool Automatic = true, canFire=false;
     //private  GameObject PanelUI;
-
+    public GameObject explosionZone;
     void Start()
     {
         //PanelUI = GameObject.Find("PanelUI");
@@ -81,7 +81,13 @@ public class Tir : MonoBehaviour {
                                 Sparks = Instantiate(SparksPrefab, hit.point, Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
                                 Destroy(Sparks, 3f);
                             }
-
+                            if (hit.transform.gameObject.tag == "baril")
+                            {
+                                GameObject explosion= Instantiate(explosionZone, hit.point, Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
+                                Destroy(explosion, 2f);
+                                Destroy(hit .transform.gameObject);
+                                GetComponent<AudioSource>().PlayOneShot(soundExplosion);
+                            }
                         }
                     }
                 }
@@ -123,7 +129,13 @@ public class Tir : MonoBehaviour {
                                 Sparks = Instantiate(SparksPrefab, hit.point, Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
                                 Destroy(Sparks, 3f);
                             }
-
+                            if (hit.transform.gameObject.tag == "baril")
+                            {
+                                GameObject explosion= Instantiate(explosionZone, hit.point, Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
+                                Destroy(explosion, 2f);
+                                Destroy(hit .transform.gameObject);
+                                GetComponent<AudioSource>().PlayOneShot(soundExplosion);
+                            }
                         }
                     }
                 }

@@ -372,10 +372,14 @@ public class DB_Manager : MonoBehaviour {
     }
     void OnApplicationQuit()
     {
-        foreach (User u in connectUsers.users)
+        if (connectUsers)
         {
-            u.isPlay = false;
+            foreach (User u in connectUsers.users)
+            {
+                u.isPlay = false;
+            }
         }
+       
         Debug.Log("Application ending after " + Time.time + " seconds");
     }
     

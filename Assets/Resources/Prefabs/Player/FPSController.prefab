@@ -853,6 +853,7 @@ MonoBehaviour:
   SoundShoot: {fileID: 8300000, guid: 0a3e7fb5175b7fe4697ccc26e56d0e7b, type: 3}
   SoundReload: {fileID: 8300000, guid: 4e85329096ff4f449bf2ccf9aa2ecc62, type: 3}
   SoundEmpty: {fileID: 8300000, guid: 35b78200340e0ae4f98dde309acd9698, type: 3}
+  soundExplosion: {fileID: 8300000, guid: d886f6ac5d0ba264a8ce5b6798c4c2da, type: 3}
   shootRate: 0.5
   nextFire: 0
   cartouches: 6
@@ -863,6 +864,8 @@ MonoBehaviour:
   SparksPrefab: {fileID: 197494, guid: ce56f814fa0835a43aba1716e41c3173, type: 3}
   Automatic: 0
   canFire: 0
+  explosionZone: {fileID: 1651934191892112831, guid: 1304e897cc5bd4d4396fb1488306321f,
+    type: 3}
 --- !u!82 &4057293733518165544
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2471,6 +2474,7 @@ MonoBehaviour:
   SoundShoot: {fileID: 8300000, guid: 9907c1a938d1eed4cb3b0d28c967dd4a, type: 3}
   SoundReload: {fileID: 8300000, guid: 4e85329096ff4f449bf2ccf9aa2ecc62, type: 3}
   SoundEmpty: {fileID: 8300000, guid: 35b78200340e0ae4f98dde309acd9698, type: 3}
+  soundExplosion: {fileID: 8300000, guid: d886f6ac5d0ba264a8ce5b6798c4c2da, type: 3}
   shootRate: 0.1
   nextFire: 0
   cartouches: 20
@@ -2481,6 +2485,8 @@ MonoBehaviour:
   SparksPrefab: {fileID: 197494, guid: ce56f814fa0835a43aba1716e41c3173, type: 3}
   Automatic: 1
   canFire: 0
+  explosionZone: {fileID: 1651934191892112831, guid: 1304e897cc5bd4d4396fb1488306321f,
+    type: 3}
 --- !u!82 &4057293733187267946
 AudioSource:
   m_ObjectHideFlags: 0
