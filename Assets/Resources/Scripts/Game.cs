@@ -63,6 +63,7 @@ public class Game : Flow
         //ambianceManager = AmbianceManager.Instance;
 
         //First Initialize
+        logicManager.PreInitialize();
         timeManager.PreInitialize();
 
         uiManager.PreInitialize();
@@ -73,7 +74,6 @@ public class Game : Flow
         //trapManager.PreInitialize();
 
         enemyManager.PreInitialize();
-        logicManager.PreInitialize();
         //waveManager.PreInitialize();
 
         //podManager.PreInitialize();
@@ -87,6 +87,7 @@ public class Game : Flow
 
     override public void Initialize()
     {
+        logicManager.Initialize();
         timeManager.Initialize();
 
         uiManager.Initialize();
@@ -97,7 +98,6 @@ public class Game : Flow
         //trapManager.Initialize();
         
         enemyManager.Initialize();
-        logicManager.Initialize();
         //waveManager.Initialize();
 
         //podManager.Initialize();
@@ -118,6 +118,7 @@ public class Game : Flow
     {
         if (!sceneEnded)
         {
+            logicManager.Refresh();
             timeManager.Refresh();
 
             uiManager.Refresh();
@@ -128,7 +129,6 @@ public class Game : Flow
             //trapManager.Refresh();
 
             enemyManager.Refresh();
-            logicManager.Refresh();
 
             //waveManager.Refresh();
 
@@ -144,6 +144,7 @@ public class Game : Flow
     {
         if (!sceneEnded)
         {
+            logicManager.PhysicsRefresh();
             timeManager.PhysicsRefresh();
 
             uiManager.PhysicsRefresh();
@@ -154,7 +155,6 @@ public class Game : Flow
             //trapManager.PhysicsRefresh();
             
             enemyManager.PhysicsRefresh();
-            logicManager.PhysicsRefresh();
 
             //waveManager.PhysicsRefresh();
 
@@ -169,7 +169,7 @@ public class Game : Flow
     override public void EndFlow()
     {
         sceneEnded = true;
-
+        logicManager.EndFlow();
         timeManager.EndFlow();
 
         uiManager.EndFlow();
@@ -180,7 +180,6 @@ public class Game : Flow
         //trapManager.EndFlow();
         
         enemyManager.EndFlow();
-        logicManager.EndFlow();
 
         //waveManager.EndFlow();
 

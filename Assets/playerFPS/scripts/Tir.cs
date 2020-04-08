@@ -11,7 +11,6 @@ public class Tir : MonoBehaviour {
     public int cartouches, chargeurs, max_cartouches;
     public GameObject BulletHolePrefab, SparksPrefab;
     public bool Automatic = true, canFire=false;
-    //private  GameObject PanelUI;
     public GameObject explosionZone;
     void Start()
     {
@@ -56,6 +55,14 @@ public class Tir : MonoBehaviour {
                         UIManager.Instance.UpdateTxtCartouches(cartouches, max_cartouches, chargeurs);
                         //PanelUI.GetComponent<UiScript>().UpdateTxtCartouches(cartouches, max_cartouches, chargeurs);
 
+                        if (GetComponent<Animator>().GetBool("target"))
+                        {
+                            shootRate = 0.5f;
+                        }
+                        else
+                        {
+                            shootRate = 0.08f;
+                        }
                         nextFire = Time.time + shootRate;
 
                         GetComponent<AudioSource>().PlayOneShot(SoundShoot);
@@ -102,7 +109,6 @@ public class Tir : MonoBehaviour {
                     
                         cartouches -= 1;
                         UIManager.Instance.UpdateTxtCartouches(cartouches, max_cartouches, chargeurs);
-                        //PanelUI.GetComponent<UiScript>().UpdateTxtCartouches(cartouches, max_cartouches, chargeurs);
 
                         nextFire = Time.time + shootRate;
 
@@ -115,7 +121,6 @@ public class Tir : MonoBehaviour {
                             if (hit.transform.gameObject.tag == "ennemi")
                             {
                                 EnemyManager.Instance.DamageEnemie(hit.transform.gameObject,PlayerStats.damage);
-                                //hit.transform.gameObject.GetComponent<dead>().ennemiDead();
                             }
 
                             if (hit.transform.gameObject.tag == "decor")
@@ -144,12 +149,15 @@ public class Tir : MonoBehaviour {
         }
         
         //Recharge
-        if(Input.GetKeyDown(KeyCode.R) && cartouches==0 && chargeurs>0)
-        {           
-            GetComponent<AudioSource>().PlayOneShot(SoundReload);
-            StartCoroutine(Recharge());
+        if (!GetComponent<Animator>().GetBool("target"))
+        {
+            if(Input.GetKeyDown(KeyCode.R) && cartouches==0 && chargeurs>0)
+            {           
+                GetComponent<AudioSource>().PlayOneShot(SoundReload);
+                StartCoroutine(Recharge());
+            }
         }
-
+        
         //Plus de cartouches
 
         if (Input.GetButton("Fire1") && cartouches == 0 && Time.time > nextFire)

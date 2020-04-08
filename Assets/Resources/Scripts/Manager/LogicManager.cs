@@ -27,10 +27,11 @@ public class LogicManager : Flow {
     {
         if (PlayerStats.IsPlayerDead)
             LevelLost();
-
     }
 
-    override public void PhysicsRefresh() { }
+    override public void PhysicsRefresh()
+    {
+    }
 
     override public void EndFlow()
     {

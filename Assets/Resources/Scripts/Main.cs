@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class Main : MonoBehaviour
 {
@@ -12,10 +14,6 @@ public class Main : MonoBehaviour
 
     static public Main Instance
     {
-        /*get
-        {
-            return instance ?? (instance = new BulletManager());
-        }*/
         get
         {
             if (instance == null){
@@ -47,7 +45,13 @@ public class Main : MonoBehaviour
 
     private string currentSceneName;
     private string lastSceneName;
+    
+    double time;
+    double currentTime;
 
+    private VideoPlayer video;
+
+    private bool canRefresh = false;
     //public AmbianceManager ambiance;
 
     private void Awake()
@@ -90,15 +94,22 @@ public class Main : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "level1")
         {
-            currentFlow = game;
+            currentFlow = menuFlow;
             //ambiance.playMapMusic();
-            isInMenuScene = false;
+            isInMenuScene = true;
         }
         else
         {
             Debug.LogWarning("Not supposed to happen. Wrong scene name. Loading Room Flow.");
             currentFlow = menuFlow;
         }
+
+        if (!PlayerStats.IsPlayerDead)
+        {
+            video = gameObject.GetComponent<VideoPlayer>();
+            time = video.clip.length;
+        }
+        
     }
 
     private void Start()
@@ -108,12 +119,36 @@ public class Main : MonoBehaviour
 
     private void Update()
     {
-        currentFlow.Refresh();
+        if (true)
+        {
+            currentTime = video.time;
+            if (currentTime < time)
+            {
+                if (PlayerManager.Instance!=null)
+                {
+                    PlayerManager.Instance.player.SetActive(false);
+                    PlayerManager.Instance.player.GetComponent<FirstPersonController>().UnlockMouse();
+                    UIManager.Instance.HideUI();
+                }
+            }
+            else {
+                currentFlow.Refresh();
+                canRefresh = true;
+                PlayerManager.Instance.player.SetActive(true);
+                UIManager.Instance.ShowUI();
+            }
+        }
+        
     }
 
     private void FixedUpdate()
     {
-        currentFlow.PhysicsRefresh();
+        if (true)
+        {
+            if (canRefresh)
+                currentFlow.PhysicsRefresh();
+        }
+        
     }
 
     private void EndFlow()
@@ -136,6 +171,8 @@ public class Main : MonoBehaviour
             sceneTransition.loadLevelScene();
             isInMenuScene = false;
         }
+
+        //instance = null;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -159,5 +196,11 @@ public class Main : MonoBehaviour
             currentFlow.Initialize();
             lastSceneName = currentSceneName;
         }
+    }
+
+    public void SkipTrailer()
+    {
+        video.time = time;
+        UIManager.Instance.HideCanvas();
     }
 }

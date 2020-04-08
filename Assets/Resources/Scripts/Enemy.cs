@@ -50,6 +50,8 @@ public class Enemy : MonoBehaviour {
             if(distance<attackDistance)
             {
                 anim.SetBool("attack", true);
+                transform.rotation=Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(target.transform.position-transform.position),2*Time.deltaTime);
+                
                 agent.SetDestination(transform.position);
             }
         }

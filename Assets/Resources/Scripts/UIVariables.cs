@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 public class UIVariables : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class UIVariables : MonoBehaviour
     public Text leaderBoard;
     public Image bloodScreen;
 
+    public GameObject canvasPlayer;
+    public GameObject canvasMission;
+    public GameObject canvas;
     // public TextMeshProUGUI towerKillsUI;
     //public TextMeshProUGUI totalKillsUI;
 

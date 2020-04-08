@@ -429,7 +429,7 @@ VideoPlayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367340328}
-  m_Enabled: 1
+  m_Enabled: 0
   m_VideoClip: {fileID: 32900000, guid: 4898cc2d8031e4e4f9b89b8e3b3b299e, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
@@ -2440,6 +2440,14 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.83
@@ -2472,14 +2480,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -2500,6 +2500,34 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.999962
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.008727891
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 179.00002
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2533,41 +2561,9 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.999962
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.008727891
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 179.00002
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
       propertyPath: m_Range
@@ -2579,11 +2575,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 0
+      value: 2.3510647e-38
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 4.5e-44
+      value: 2.3510647e-38
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
       propertyPath: m_BoundingSphereOverride.z
@@ -2591,7 +2587,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 10800000, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20dc31b5dd0b80d45a83dc142b723e58, type: 3}

@@ -129,10 +129,14 @@ public class UIManager : Flow {
     }
 
     public void HideUI() {
-        //UIVariables.uiLink.canvas.SetActive(false);
-        /*UIVariables.uiLink.winUI.SetActive(false);
-        UIVariables.uiLink.loseUI.SetActive(false);
-        UIVariables.uiLink.fireworks.SetActive(false);
-        UIVariables.uiLink.explosion.SetActive(false);*/
+        UIVariables.uiLink.canvasPlayer.SetActive(false);
+        UIVariables.uiLink.canvasMission.SetActive(false);
+    }
+    public void ShowUI() {
+        UIVariables.uiLink.canvasPlayer.SetActive(true);
+        UIVariables.uiLink.canvasMission.SetActive(true);
+    }
+    public void HideCanvas() {
+        UIVariables.uiLink.canvas.SetActive(false);
     }
 }
