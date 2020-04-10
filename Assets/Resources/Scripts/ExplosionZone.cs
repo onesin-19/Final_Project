@@ -9,14 +9,31 @@ public class ExplosionZone : MonoBehaviour
     public int Force;
     public int radius;
     public int damageExplosion=5;
+    public AudioClip soundExplosion;
     void Start()
     {
         Collider[] colliders = Physics.OverlapSphere (transform.position, radius);
         EnemyManager.Instance.DamageEnemiesInRange(transform.position,radius,damageExplosion);
         if (Vector3.Distance(PlayerManager.Instance.player.transform.position,transform.position)<radius)
             PlayerManager.Instance.playerDegats(radius-(int)(Vector3.Distance(PlayerManager.Instance.player.transform.position,transform.position)));
+        
+        GameObject[] barrels = GameObject.FindGameObjectsWithTag("baril");
+        
+        foreach (GameObject bar in barrels)
+        {
+            if (Vector3.Distance(transform.position, bar.transform.position) < radius && transform.position!=bar.transform.position)
+            {
+                TimeManager.Instance.AddTimedAction(new TimedAction(() =>
+                {
+                    GameObject explosion1= Instantiate(gameObject, bar.transform.position, bar.transform.rotation) as GameObject;
+                    Destroy(explosion1, 2f);
+                    Destroy(bar);
+                    GetComponent<AudioSource>().PlayOneShot(soundExplosion);
+                }, 1f));
+            }
+        }
         foreach (Collider hit  in colliders) {
-            if (hit.gameObject.tag == "ennemi")
+            /*if (hit.gameObject.tag == "ennemi")
             {
                 EnemyManager.Instance.DamageEnemie(hit.gameObject,-(int)(Vector3.Distance(hit.gameObject.transform.position,transform.position)+radius));
                 Debug.Log("ennemi enter");
@@ -24,12 +41,13 @@ public class ExplosionZone : MonoBehaviour
             if (hit.gameObject.tag == "Player")
             {
                 PlayerManager.Instance.playerDegats(-(int)(Vector3.Distance(PlayerManager.Instance.player.transform.position,transform.position)+radius));
-            }
+            }*/
+            
             if (hit.GetComponent<Rigidbody>())
                hit.GetComponent<Rigidbody>().AddExplosionForce (Force, transform.position, radius, 3.0f);
         }
         GameObject explosion= Instantiate(explosionPrefabs, transform.position, transform.rotation) as GameObject;
-        Destroy(explosion, 1f);
+        Destroy(explosion, 2f);
     }
 
     /*{

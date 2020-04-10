@@ -90,7 +90,7 @@ public class Tir : MonoBehaviour {
                             }
                             if (hit.transform.gameObject.tag == "baril")
                             {
-                                GameObject explosion= Instantiate(explosionZone, hit.point, Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
+                                GameObject explosion= Instantiate(explosionZone, hit.transform.position, Quaternion.FromToRotation(Vector3.forward, hit.normal)) as GameObject;
                                 Destroy(explosion, 2f);
                                 Destroy(hit .transform.gameObject);
                                 GetComponent<AudioSource>().PlayOneShot(soundExplosion);
@@ -151,7 +151,7 @@ public class Tir : MonoBehaviour {
         //Recharge
         if (!GetComponent<Animator>().GetBool("target"))
         {
-            if(Input.GetKeyDown(KeyCode.R) && cartouches==0 && chargeurs>0)
+            if((Input.GetKeyDown(KeyCode.R)||Input.GetButtonDown("PS4_O")) && cartouches==0 && chargeurs>0)
             {           
                 GetComponent<AudioSource>().PlayOneShot(SoundReload);
                 StartCoroutine(Recharge());
@@ -182,6 +182,5 @@ public class Tir : MonoBehaviour {
         UIManager.Instance.UpdateTxtCartouches(cartouches, max_cartouches, chargeurs);
         //PanelUI.GetComponent<UiScript>().UpdateTxtCartouches(cartouches, max_cartouches, chargeurs);
     }
-
-
+    
 }

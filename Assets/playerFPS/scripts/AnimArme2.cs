@@ -28,13 +28,13 @@ public class AnimArme2 : MonoBehaviour {
         }
 
         //reload
-        if (Input.GetKeyDown(KeyCode.R) && GetComponent<Tir>().cartouches == 0 && GetComponent<Tir>().chargeurs > 0)
+        if ((Input.GetKeyDown(KeyCode.R)||Input.GetButtonDown("PS4_O")) && GetComponent<Tir>().cartouches == 0 && GetComponent<Tir>().chargeurs > 0)
         {
             Anim.SetTrigger("reload");
         }
 
         //walk
-        if (Input.GetAxis("Vertical") != 0 && !Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetAxis("Vertical") != 0 && (!Input.GetKeyDown(KeyCode.LeftShift)&&!Input.GetButton("PS4_R2")))
         {
             Anim.SetBool("walk", true);
         }
@@ -44,7 +44,7 @@ public class AnimArme2 : MonoBehaviour {
         }
 
         //run
-        if (Input.GetAxis("Vertical") != 0 && Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetAxis("Vertical") != 0 && (Input.GetKey(KeyCode.LeftShift)||Input.GetButton("PS4_R2")))
         {
             Anim.SetBool("run", true);
         }

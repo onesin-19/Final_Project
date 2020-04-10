@@ -26,7 +26,7 @@ public class ArmeManager : MonoBehaviour {
 	
 	void Update () {
 	
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if(Input.GetKeyDown(KeyCode.Alpha1)||Input.GetButton("PS4_L1"))
         {
             if(current_arme!=0)
             {
@@ -35,7 +35,7 @@ public class ArmeManager : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2)||Input.GetButton("PS4_R1"))
         {
             if (current_arme != 1)
             {

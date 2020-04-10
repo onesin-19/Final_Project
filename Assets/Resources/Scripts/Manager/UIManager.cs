@@ -54,7 +54,7 @@ public class UIManager : Flow {
     }
     public void UpdateTxtCartouches (int cartouches, int maxcartouches,int chargeurs) {
         this.ammo.text = "Munitoins : " + cartouches + "/" + maxcartouches;
-        this.recharge.text = "Chargeurs : " + chargeurs;
+        this.recharge.text = "Chargeurs : " + (chargeurs>0?chargeurs:0);
         
     }
 

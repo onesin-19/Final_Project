@@ -32,7 +32,7 @@ public class AnimArme1 : MonoBehaviour {
             }
             else
             {
-                if(GetComponent<Tir>().cartouches > 0)
+               if(GetComponent<Tir>().cartouches > 0)
                 {
                     AnimFlamme2.SetBool("flamme", true);
                 }
@@ -55,14 +55,14 @@ public class AnimArme1 : MonoBehaviour {
         //reload
         if (!Anim.GetBool("target"))
         {
-            if (Input.GetKeyDown(KeyCode.R) && GetComponent<Tir>().cartouches == 0 && GetComponent<Tir>().chargeurs> 0)
+            if ((Input.GetKeyDown(KeyCode.R)||Input.GetButtonDown("PS4_O")) && GetComponent<Tir>().cartouches == 0 && GetComponent<Tir>().chargeurs> 0)
             {
                 Anim.SetTrigger("reload");
             }
         }
         
         //walk
-        if (Input.GetAxis("Vertical")!=0 && !Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetAxis("Vertical")!=0 && (!Input.GetKey(KeyCode.LeftShift)&&!Input.GetButton("PS4_R2")))
         {
             Anim.SetBool("walk", true);
         }else
@@ -71,7 +71,7 @@ public class AnimArme1 : MonoBehaviour {
         }
 
         //run
-        if (Input.GetAxis("Vertical") != 0 && Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetAxis("Vertical") != 0 && (Input.GetKey(KeyCode.LeftShift)||Input.GetButton("PS4_R2")))
         {
             Anim.SetBool("run", true);
         }
@@ -81,11 +81,11 @@ public class AnimArme1 : MonoBehaviour {
         }
 
         //target enemy
-        if (Input.GetKey(KeyCode.Tab))
+        if (Input.GetKey(KeyCode.Tab)||(Input.GetButton("PS4_Triangle")&&Input.GetButton("PS4_L2")))
         {
             Anim.SetBool("target",true);
         }
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q)||(Input.GetButton("PS4_Triangle")&&Input.GetButton("PS4_R2")))
         {
             Anim.SetBool("target",false);
         }
