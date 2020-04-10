@@ -16,9 +16,9 @@ public class Main : MonoBehaviour
     {
         get
         {
-            if (instance == null){
-                GameObject go = new GameObject();
-                instance = go.AddComponent<Main>();
+            if (instance == null)
+            {
+                instance = GameObject.FindObjectOfType<Main>();//AddComponent<Main>();
             }
             return instance;
         }
@@ -104,11 +104,11 @@ public class Main : MonoBehaviour
             currentFlow = menuFlow;
         }
 
-        if (!PlayerStats.IsPlayerDead)
-        {
+        /*if (!PlayerStats.IsPlayerDead)
+        {*/
             video = gameObject.GetComponent<VideoPlayer>();
             time = video.clip.length;
-        }
+       // }
         
     }
 
@@ -124,12 +124,12 @@ public class Main : MonoBehaviour
             currentTime = video.time;
             if (currentTime < time)
             {
-                if (PlayerManager.Instance!=null)
-                {
+                /*if (PlayerManager.Instance!=null)
+                {*/
                     PlayerManager.Instance.player.SetActive(false);
                     PlayerManager.Instance.player.GetComponent<FirstPersonController>().UnlockMouse();
                     UIManager.Instance.HideUI();
-                }
+               // }
             }
             else {
                 currentFlow.Refresh();
@@ -202,5 +202,15 @@ public class Main : MonoBehaviour
     {
         video.time = time;
         UIManager.Instance.HideCanvas();
+    }
+
+    public void OpenMenu()
+    {
+        PauseManager.Instance.MainMenu();
+    }
+    
+    public void ContinuePlay()
+    {
+        PauseManager.Instance.Toggle();
     }
 }

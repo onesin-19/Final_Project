@@ -32,6 +32,8 @@ public class Game : Flow
     //rojectileManager projectileManager;
 
     UIManager uiManager;
+
+    private PauseManager pauseManager;
     //AmbianceManager ambianceManager;
 
     private GameVariables gameVariables;
@@ -55,6 +57,7 @@ public class Game : Flow
 
         //waveManager = WaveManager.Instance;
         enemyManager = EnemyManager.Instance;
+        pauseManager = PauseManager.Instance;
 
         //podManager = PodManager.Instance;
         //arrowManager = ArrowManager.Instance;
@@ -67,6 +70,7 @@ public class Game : Flow
         timeManager.PreInitialize();
 
         uiManager.PreInitialize();
+        pauseManager.PreInitialize();
         playerManager.PreInitialize();
         inputManager.PreInitialize();
 
@@ -91,6 +95,7 @@ public class Game : Flow
         timeManager.Initialize();
 
         uiManager.Initialize();
+        pauseManager.Initialize();
         playerManager.Initialize();
         inputManager.Initialize();
 
@@ -107,7 +112,7 @@ public class Game : Flow
         //ambianceManager.Initialize();
 
         //Setup Variables
-        gameVariables = GameVariables.instance;
+        gameVariables = GameVariables.Instance;
         mapVariables = LevelVariables.instance;
         sceneEnded = false;
 
@@ -122,6 +127,7 @@ public class Game : Flow
             timeManager.Refresh();
 
             uiManager.Refresh();
+            pauseManager.Refresh();
             playerManager.Refresh();
             inputManager.Refresh();
 
@@ -148,6 +154,7 @@ public class Game : Flow
             timeManager.PhysicsRefresh();
 
             uiManager.PhysicsRefresh();
+            pauseManager.PhysicsRefresh();
             playerManager.PhysicsRefresh();
             inputManager.PhysicsRefresh();
 
@@ -173,6 +180,7 @@ public class Game : Flow
         timeManager.EndFlow();
 
         uiManager.EndFlow();
+        pauseManager.EndFlow();
         playerManager.EndFlow();
         inputManager.EndFlow();
 

@@ -34,6 +34,7 @@ public class LevelVariables : MonoBehaviour
     [SerializeField] public Player playerPrefab;
     [SerializeField] public AudioClip soudDead;
     [SerializeField] public Transform playerSpawnPosition;
+    [SerializeField] public SceneFader sceneFader;
 
 
     [FormerlySerializedAs("enemyStart")]

@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class GameVariables : MonoBehaviour {
 
-    #region Singleton
-    public static GameVariables instance;
+   #region Singleton
+    public static GameVariables Instance;
     private void Awake() {
 
-        if (instance == null) {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
+        if (Instance == null) {
+            Instance = this;
+            //DontDestroyOnLoad(this.gameObject);
             //InitPathTilesCoords();
             //InitInactiveTiles();
         }
@@ -20,6 +20,16 @@ public class GameVariables : MonoBehaviour {
         }            
     }
     #endregion
+  /* #region Singleton
+   static private GameVariables instance = null;
+
+   static public GameVariables Instance {
+       get {
+           return instance ?? (instance = new GameVariables());
+       }
+   }
+
+   #endregion*/
 
     /*[Header("Grids")]
     [SerializeField] public ushort mapRows = 12;
@@ -30,12 +40,13 @@ public class GameVariables : MonoBehaviour {
     [HideInInspector] public List<Vector2> inactiveTilesCoords;*/
 
 
-    [Header("Player")]
+    /*[Header("Player")]
     [SerializeField] public Player playerPrefab;
 
     [HideInInspector] public PlayerStats playerStat;
     [Header("Enemies")]
-    [SerializeField] public LevelSystem levelSystem;
+    [SerializeField] public LevelSystem levelSystem;*/
+    [SerializeField] public SceneFader sceneFader;
     //[SerializeField] public GameObject enemyStart;
     //[SerializeField] public GameObject enemyEnd;
     //[SerializeField] public GameObject enemyParentPoint;

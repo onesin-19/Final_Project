@@ -16,7 +16,8 @@ public class ChoiceStartScene : MonoBehaviour
         if (connectUsers.users.Count==0)
         {
             DB_Manager.Instance.connect_BDD();
-            SceneManager.LoadScene("login");
+            //SceneManager.LoadScene("login");
+            GameVariables.Instance.sceneFader.FadeTo("login");
         }
         /*else if(connectUsers.users.Count==1)
         {
@@ -43,12 +44,14 @@ public class ChoiceStartScene : MonoBehaviour
     public void confirmConnectionNO()
     {
         DB_Manager.Instance.connect_BDD();
-        SceneManager.LoadScene("login");
+        GameVariables.Instance.sceneFader.FadeTo("login");
+        //SceneManager.LoadScene("login");
     }
     public void confirmConnectionYES()
     {
         DB_Manager.Instance.IPseudo = dropdownbox.options[dropdownbox.value].text;
-        SceneManager.LoadScene("menu");
+        GameVariables.Instance.sceneFader.FadeTo("menu");
+        //SceneManager.LoadScene("menu");
         connectUsers.activePlayer(dropdownbox.options[dropdownbox.value].text);//.users[0].isPlay = true;
     }
 

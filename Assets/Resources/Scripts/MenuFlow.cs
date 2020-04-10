@@ -90,7 +90,7 @@ public class MenuFlow : Flow
         //ambianceManager.Initialize();
 
         //Setup Variables
-        gameVariables = GameVariables.instance;
+        gameVariables = GameVariables.Instance;
         //roomVariables = RoomVariables.instance;
 
         InitializeRoom();

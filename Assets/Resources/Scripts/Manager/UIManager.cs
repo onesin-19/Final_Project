@@ -139,4 +139,13 @@ public class UIManager : Flow {
     public void HideCanvas() {
         UIVariables.uiLink.canvas.SetActive(false);
     }
+
+    public void ChangeStatePauseMenu(bool active)
+    {
+        UIVariables.uiLink.PauseMenu.SetActive(active);
+    }
+    public void HidePauseMenu()
+    {
+        UIVariables.uiLink.PauseMenu.SetActive(false);
+    }
 }
