@@ -18,19 +18,31 @@ public class ExplosionZone : MonoBehaviour
             PlayerManager.Instance.playerDegats(radius-(int)(Vector3.Distance(PlayerManager.Instance.player.transform.position,transform.position)));
         
         GameObject[] barrels = GameObject.FindGameObjectsWithTag("baril");
-        
+        float minDist = radius;
+        GameObject barel=null;
         foreach (GameObject bar in barrels)
         {
             if (Vector3.Distance(transform.position, bar.transform.position) < radius && transform.position!=bar.transform.position)
             {
-                TimeManager.Instance.AddTimedAction(new TimedAction(() =>
+                if (minDist > Vector3.Distance(transform.position, bar.transform.position))
                 {
-                    GameObject explosion1= Instantiate(gameObject, bar.transform.position, bar.transform.rotation) as GameObject;
-                    Destroy(explosion1, 2f);
-                    Destroy(bar);
-                    GetComponent<AudioSource>().PlayOneShot(soundExplosion);
-                }, 1f));
+                    minDist = Vector3.Distance(transform.position, bar.transform.position);
+                    barel = bar;
+                }
+                
+                
             }
+        }
+
+        if (minDist < radius)
+        {
+            TimeManager.Instance.AddTimedAction(new TimedAction(() =>
+            {
+                GameObject explosion1= Instantiate(gameObject, barel.transform.position, barel.transform.rotation) as GameObject;
+                Destroy(explosion1, 2f);
+                Destroy(barel);
+                GetComponent<AudioSource>().PlayOneShot(soundExplosion);
+            }, 1f));
         }
         foreach (Collider hit  in colliders) {
             /*if (hit.gameObject.tag == "ennemi")

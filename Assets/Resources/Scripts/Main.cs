@@ -92,11 +92,13 @@ public class Main : MonoBehaviour
             currentFlow = game;
             isInMenuScene = false;
         }
-        else if (SceneManager.GetActiveScene().name == "level1")
+        else if (SceneManager.GetActiveScene().name == "level1"||
+                 SceneManager.GetActiveScene().name == "level2"||SceneManager.GetActiveScene().name == "level3")
         {
             currentFlow = menuFlow;
             //ambiance.playMapMusic();
             isInMenuScene = true;
+            
         }
         else
         {
@@ -104,11 +106,11 @@ public class Main : MonoBehaviour
             currentFlow = menuFlow;
         }
 
-        /*if (!PlayerStats.IsPlayerDead)
-        {*/
+        if (SceneManager.GetActiveScene().name == "level1")
+        {
             video = gameObject.GetComponent<VideoPlayer>();
             time = video.clip.length;
-       // }
+        }
         
     }
 
@@ -119,17 +121,16 @@ public class Main : MonoBehaviour
 
     private void Update()
     {
-        if (true)
+
+        if (SceneManager.GetActiveScene().name == "level1")
         {
             currentTime = video.time;
             if (currentTime < time)
             {
-                /*if (PlayerManager.Instance!=null)
-                {*/
-                    PlayerManager.Instance.player.SetActive(false);
-                    PlayerManager.Instance.player.GetComponent<FirstPersonController>().UnlockMouse();
-                    UIManager.Instance.HideUI();
-               // }
+           
+                PlayerManager.Instance.player.SetActive(false);
+                PlayerManager.Instance.player.GetComponent<FirstPersonController>().UnlockMouse();
+                UIManager.Instance.HideUI();
             }
             else {
                 currentFlow.Refresh();
@@ -138,16 +139,21 @@ public class Main : MonoBehaviour
                 UIManager.Instance.ShowUI();
             }
         }
+        else
+        {
+            currentFlow.Refresh();
+            canRefresh = true;
+            PlayerManager.Instance.player.SetActive(true);
+            UIManager.Instance.ShowUI();
+        }
         
+
     }
 
     private void FixedUpdate()
     {
-        if (true)
-        {
-            if (canRefresh)
-                currentFlow.PhysicsRefresh();
-        }
+        if (canRefresh)
+            currentFlow.PhysicsRefresh();
         
     }
 

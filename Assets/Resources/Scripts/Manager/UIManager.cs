@@ -47,7 +47,6 @@ public class UIManager : Flow {
         ImLife = UIVariables.uiLink.ImLife; 
         missionUI = UIVariables.uiLink.missionUI; 
         PseudoUI = UIVariables.uiLink.PseudoUI;
-        leaderBoard = UIVariables.uiLink.leaderBoard;
         bloodScreen = UIVariables.uiLink.bloodScreen;
         PlayerStats.resetAllStats();
         InitScoreboard();
@@ -80,9 +79,8 @@ public class UIManager : Flow {
         PlayerStats.Hp = Mathf.Clamp(PlayerStats.Hp, 0, 100);
         ImLife.fillAmount = PlayerStats.Hp / 100;
         this.lifeUItxt.text = "VIE " + PlayerStats.Hp + "%";
-        this.missionUI.text = "MISSION : TROUVER LA CLEF POUR SORTIR VIVANT !!!" ;
+        //this.missionUI.text = "MISSION : TROUVER LA CLEF POUR SORTIR VIVANT !!!" ;
         this.PseudoUI.text = "Pseudo : "+DB_Manager.Instance.IPseudo;
-        this.leaderBoard.text = "";
     }
 
     public void TurningOff() {
@@ -130,7 +128,7 @@ public class UIManager : Flow {
 
     public void HideUI() {
         UIVariables.uiLink.canvasPlayer.SetActive(false);
-        UIVariables.uiLink.canvasMission.SetActive(false);
+        //UIVariables.uiLink.canvasMission.SetActive(false);
     }
     public void ShowUI() {
         UIVariables.uiLink.canvasPlayer.SetActive(true);

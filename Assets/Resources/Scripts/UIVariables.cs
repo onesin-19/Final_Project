@@ -13,7 +13,6 @@ public class UIVariables : MonoBehaviour
     public Image ImLife;
     public Text missionUI;
     public Text PseudoUI;
-    public Text leaderBoard;
     public Image bloodScreen;
 
     public GameObject canvasPlayer;

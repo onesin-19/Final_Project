@@ -34,6 +34,8 @@ public class Game : Flow
     UIManager uiManager;
 
     private PauseManager pauseManager;
+
+    private SurvivorManager survivorManager;
     //AmbianceManager ambianceManager;
 
     private GameVariables gameVariables;
@@ -58,7 +60,7 @@ public class Game : Flow
         //waveManager = WaveManager.Instance;
         enemyManager = EnemyManager.Instance;
         pauseManager = PauseManager.Instance;
-
+        survivorManager = SurvivorManager.Instance;
         //podManager = PodManager.Instance;
         //arrowManager = ArrowManager.Instance;
         //projectileManager = ProjectileManager.Instance;
@@ -78,6 +80,7 @@ public class Game : Flow
         //trapManager.PreInitialize();
 
         enemyManager.PreInitialize();
+        survivorManager.PreInitialize();
         //waveManager.PreInitialize();
 
         //podManager.PreInitialize();
@@ -103,6 +106,7 @@ public class Game : Flow
         //trapManager.Initialize();
         
         enemyManager.Initialize();
+        survivorManager.Initialize();
         //waveManager.Initialize();
 
         //podManager.Initialize();
@@ -116,7 +120,7 @@ public class Game : Flow
         mapVariables = LevelVariables.instance;
         sceneEnded = false;
 
-        InitializeMap();
+        SpawnPlayer();
     }
 
     override public void Refresh()
@@ -135,7 +139,7 @@ public class Game : Flow
             //trapManager.Refresh();
 
             enemyManager.Refresh();
-
+            survivorManager.Refresh();
             //waveManager.Refresh();
 
             //podManager.Refresh();
@@ -162,7 +166,7 @@ public class Game : Flow
             //trapManager.PhysicsRefresh();
             
             enemyManager.PhysicsRefresh();
-
+            survivorManager.PhysicsRefresh();
             //waveManager.PhysicsRefresh();
 
             //podManager.PhysicsRefresh();
@@ -188,7 +192,7 @@ public class Game : Flow
         //trapManager.EndFlow();
         
         enemyManager.EndFlow();
-
+        survivorManager.EndFlow();
         //waveManager.EndFlow();
 
         //podManager.EndFlow();
@@ -298,15 +302,8 @@ public class Game : Flow
 
     /*private void PlacePointInMap()
     {
-        GameObject enemyPoint = this.mapVariables.enemyParentPoint;
-        foreach (Vector2 vec in GameVariables.instance.pathTilesCoords)
-        {
-            GameObject ob = GameObject.Instantiate(this.mapVariables.enemyPoint,
-                this.mapVariables.mapGrid.GetTileCenterFixed(this.mapVariables.mapGrid.GetTileCoords(vec)),
-                Quaternion.identity,
-                enemyPoint.transform);
-        }
-        //EnemyManager.Instance.SetPoints(enemyPoint.transform);
-        //GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Player/TeleportPoint"), enemyPoint.transform.GetChild(enemyPoint.transform.childCount - 1).transform.position, Quaternion.identity);
+        GameObject Point = this.mapVariables.Waypoint;
+        
+        SurvivorManager.Instance.SetPoints(Point.transform);
     }*/
 }

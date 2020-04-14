@@ -40,8 +40,14 @@ public class Enemy : MonoBehaviour {
             //return;
         } 
         
+        if(Vector3.Distance(PlayerManager.Instance.player.transform.position,transform.position)<=Vector3.Distance(SurvivorManager.Instance.survivor.transform.position,transform.position))
+            target = PlayerManager.Instance.player;
+        else
+        {
+            target = SurvivorManager.Instance.survivor.gameObject;
+        }
+        
         distance = Vector3.Distance(target.transform.position, transform.position);
-
         if(distance<walkDistance)
         {
             anim.SetBool("walk", true);
@@ -71,11 +77,19 @@ public class Enemy : MonoBehaviour {
     }
     public void damageToPlayer()
     {
+        
         GetComponent<AudioSource>().PlayOneShot(soundAttack);
         
         //GameObject.Find("FirstPersonCharacter").GetComponent<HealthScript>().playerDegats(Damage);
-        PlayerManager.Instance.playerDegats(Damage);
-        
+        if (target==PlayerManager.Instance.player)
+        {
+            PlayerManager.Instance.playerDegats(Damage);
+        }
+        else if (target==SurvivorManager.Instance.survivor.gameObject)
+        {
+            SurvivorManager.Instance.SurvivorDegats(Damage);
+        }
+
     }
     
     public void ennemiDead () {
@@ -94,8 +108,8 @@ public class Enemy : MonoBehaviour {
     {
         
         health -= amount;
-        anim.SetBool("iswalk", false);
-        anim.SetBool("isHit", true);
+        //anim.SetBool("iswalk", false);
+        //anim.SetBool("isHit", true);
 
         //GameObject bEffect = (GameObject)Instantiate(bloodEffect, transform.position, Quaternion.identity);
         //Destroy(bEffect, 2f);

@@ -17,7 +17,7 @@ public class LogicManager : Flow {
 
     #endregion
 
-    public bool IsGameOver { get; set; }
+    public bool IsLevelWin { get; set; }
 
     override public void PreInitialize() { }
 
@@ -25,8 +25,10 @@ public class LogicManager : Flow {
 
     override public void Refresh()
     {
-        if (PlayerStats.IsPlayerDead)
+        if (PlayerStats.IsPlayerDead||SurvivorManager.Instance.survivor.isDead)
             LevelLost();
+        else if(IsLevelWin)
+            LevelWon();
     }
 
     override public void PhysicsRefresh()
@@ -40,12 +42,13 @@ public class LogicManager : Flow {
 
     public void LevelWon()
     {
-        UIManager.Instance.ShowVictory();
+        Debug.Log("level is win");
+        /*UIManager.Instance.ShowVictory();
         //Change scene
         TimeManager.Instance.AddTimedAction(new TimedAction(() =>
         {
             Main.Instance.ChangeCurrentFlow();
-        }, 4f));
+        }, 4f));*/
     }
 
     IEnumerator GameOver()

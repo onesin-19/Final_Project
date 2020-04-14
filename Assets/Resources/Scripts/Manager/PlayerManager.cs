@@ -35,7 +35,7 @@ public class PlayerManager : Flow {
     override public void Initialize() {
         //mainPlayerController.Initialize();
         //player.Initialize();
-        player=GameObject.Instantiate(Resources.Load("Prefabs/Player/FPSController"))as GameObject;
+        player=GameObject.Instantiate(Resources.Load("Prefabs/Player/FPSController"),LevelVariables.instance.playerSpawnPosition.position,Quaternion.identity)as GameObject;
         //PlayerStats.resetAllStats();
 
     }
