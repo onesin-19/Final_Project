@@ -33,6 +33,7 @@ public class LevelVariables : MonoBehaviour
     [Header("Player")]
     [SerializeField] public Player playerPrefab;
     [SerializeField] public AudioClip soudDead;
+    [SerializeField] public AudioClip SoundWin;
     [SerializeField] public Transform playerSpawnPosition;
     //[SerializeField] public Transform EndPosition;
     [SerializeField] public SceneFader sceneFader;

@@ -63,10 +63,14 @@ public class PlayerManager : Flow {
     
     public void playerDegats(int Damage)
     {
-        PlayerStats.subtractHp(Damage);
+        if (!PlayerStats.IsPlayerDead)
+        {
+            PlayerStats.subtractHp(Damage);
         
-        UIManager.Instance.UpdateLife(PlayerStats.Hp);
+            UIManager.Instance.UpdateLife(PlayerStats.Hp);
 
+        }
+       
         if(PlayerStats.Hp <=0 && !PlayerStats.IsPlayerDead)
         {
             //player dead
@@ -91,7 +95,6 @@ public class PlayerManager : Flow {
 
             player.GetComponent<FirstPersonController>().UnlockMouse();
             player.GetComponent<FirstPersonController>().enabled = false;
-            //MonoBehaviour.StartCoroutine(GameOver());
         }
     }
 }

@@ -31,10 +31,13 @@ public class Survivor : MonoBehaviour
     {
         if( agent.speed > 0)
             anim.SetBool(Run, true);
+        if(health<=startHealth/2)
+            anim.SetBool("injuredRun",true);
         //si atteint le dernier waypoint ou tres loin du player
-        if (Vector3.Distance(transform.position,SurvivorManager.Instance.waypoints[SurvivorManager.Instance.waypoints.Length - 1].position)<5||
+        if (Vector3.Distance(transform.position,SurvivorManager.Instance.waypoints[SurvivorManager.Instance.waypoints.Length - 1].position)<=2||
             Vector3.Distance(transform.position,PlayerManager.Instance.player.transform.position)>10)
         {
+            anim.SetBool("injuredRun",false);
             anim.SetBool(Run, false);
             agent.speed = 0;
         }
@@ -49,12 +52,18 @@ public class Survivor : MonoBehaviour
 
             if (Vector3.Distance(transform.position, target.position) <= 2f)
             {
-                //check the next way point
+
+                //if survivor is on the last waypoint
                 if (waypointIndex >= SurvivorManager.Instance.waypoints.Length-1)
                 {
-                    if (Vector3.Distance(PlayerManager.Instance.player.transform.position,SurvivorManager.Instance.waypoints[SurvivorManager.Instance.waypoints.Length - 1].position)<5)
+                    //on the last waypoint
+                    if (Vector3.Distance(PlayerManager.Instance.player.transform.position,target.position)<5/*SurvivorManager.Instance.waypoints[SurvivorManager.Instance.waypoints.Length - 1].position)<5*/)
                     {
                         LogicManager.Instance.IsLevelWin = true;
+                        UIManager.Instance.ShowMissionCanvas();
+                        UIManager.Instance.missionUI.text= "MISSION ACCOMPLIE...";
+                        UIVariables.uiLink.canvasMission.GetComponent<MissionScript>().DesactiveTxt();
+                        PlayerManager.Instance.player.GetComponent<AudioSource>().PlayOneShot(LevelVariables.instance.SoundWin);
                     }
                     return;
                 }
@@ -88,6 +97,9 @@ public class Survivor : MonoBehaviour
         {
             Dead();
         }
+
+        //agent.speed = 0;
+        //anim.SetTrigger("hit");
         Debug.Log("health: "+health);
     }
     
@@ -97,7 +109,8 @@ public class Survivor : MonoBehaviour
         GetComponent<Rigidbody>().isKinematic = false;
         anim.SetTrigger("dead");
         anim.SetBool("run", false);
-        GetComponent<Survivor>().enabled = false;
+        //GetComponent<Survivor>().enabled = false;
+        PlayerStats.HasSaveSurvivor = false;
         GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;     
         //AudioEnnemi.GetComponent<AudioSource>().Stop();
         //AudioEnnemi.GetComponent<AudioSource>().PlayOneShot(soundDead);

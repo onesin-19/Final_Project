@@ -38,14 +38,18 @@ public class Enemy : MonoBehaviour {
             y = GetComponent<CapsuleCollider>().center.y;
             GetComponent<CapsuleCollider>().center = new Vector3(x, y, anim.GetFloat("colz"));
             //return;
-        } 
-        
-        if(Vector3.Distance(PlayerManager.Instance.player.transform.position,transform.position)<=Vector3.Distance(SurvivorManager.Instance.survivor.transform.position,transform.position))
-            target = PlayerManager.Instance.player;
-        else
-        {
-            target = SurvivorManager.Instance.survivor.gameObject;
         }
+
+        if (SurvivorManager.Instance.survivor!=null)
+        {
+            if(Vector3.Distance(PlayerManager.Instance.player.transform.position,transform.position)<=Vector3.Distance(SurvivorManager.Instance.survivor.transform.position,transform.position))
+                target = PlayerManager.Instance.player;
+            else
+            {
+                target = SurvivorManager.Instance.survivor.gameObject;
+            } 
+        }
+        
         
         distance = Vector3.Distance(target.transform.position, transform.position);
         if(distance<walkDistance)

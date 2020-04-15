@@ -5,8 +5,9 @@ using UnityEngine;
 public class MissionScript : MonoBehaviour {
 
     public GameObject PanelTexte;
-    public bool LockedDoor = true;
+    public bool LockedDoor;
 	void Start () {
+		LockedDoor = true;
         DesactiveTxt();
 	}
 	

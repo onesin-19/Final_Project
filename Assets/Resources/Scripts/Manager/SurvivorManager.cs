@@ -31,7 +31,7 @@ public class SurvivorManager  : Flow
     {
 
         SetPoints();
-        medea=GameObject.Instantiate(Resources.Load("Prefabs/Survivor/medea"))as GameObject;
+        medea=GameObject.Instantiate(Resources.Load("Prefabs/Survivor/eve"))as GameObject;
         survivor = medea.GetComponent<Survivor>();
         survivor.Initialize();
     }

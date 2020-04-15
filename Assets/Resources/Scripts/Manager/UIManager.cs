@@ -130,6 +130,11 @@ public class UIManager : Flow {
         UIVariables.uiLink.canvasPlayer.SetActive(false);
         //UIVariables.uiLink.canvasMission.SetActive(false);
     }
+
+    public void ShowMissionCanvas()
+    {
+        UIVariables.uiLink.canvasMission.transform.GetChild(0).gameObject.SetActive(true);
+    }
     public void ShowUI() {
         UIVariables.uiLink.canvasPlayer.SetActive(true);
         UIVariables.uiLink.canvasMission.SetActive(true);

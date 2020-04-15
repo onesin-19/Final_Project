@@ -6,37 +6,39 @@ using UnityEngine.SceneManagement;
 
 public class ExitScript : MonoBehaviour {
 
-    public string LevelToLoad;
+    //public string LevelToLoad;
     public AudioClip SoundWin;
 
 	void OnTriggerEnter (Collider col) {
 
         if(col.gameObject.tag=="Player")
         {
-            bool locked = GameObject.Find("CanvasMission").GetComponent<MissionScript>().LockedDoor;
+            bool locked = UIVariables.uiLink.canvasMission.GetComponent<MissionScript>().LockedDoor;
             if(locked)
             {
                
-                GameObject.Find("CanvasMission").GetComponent<MissionScript>().PanelTexte.SetActive(true);
-                GameObject.Find("CanvasMission").GetComponent<MissionScript>().PanelTexte.transform.Find("Text").GetComponent<Text>().text = "PORTE VEROULLIE...";
-                GameObject.Find("CanvasMission").GetComponent<MissionScript>().DesactiveTxt();
+                UIManager.Instance.ShowMissionCanvas();
+                UIManager.Instance.missionUI.text= "PORTE VEROULLIE...";
+                UIVariables.uiLink.canvasMission.GetComponent<MissionScript>().DesactiveTxt();
+                
             }
             else
             {
-                GameObject.Find("CanvasMission").GetComponent<MissionScript>().PanelTexte.SetActive(true);
-                GameObject.Find("CanvasMission").GetComponent<MissionScript>().PanelTexte.transform.Find("Text").GetComponent<Text>().text = "MISSION ACCOMPLIE...";
-                GameObject.Find("CanvasMission").GetComponent<MissionScript>().DesactiveTxt();
-                GetComponent<AudioSource>().PlayOneShot(SoundWin);
-                StartCoroutine(ChargementScene());
+                UIManager.Instance.ShowMissionCanvas();
+                UIManager.Instance.missionUI.text= "MISSION ACCOMPLIE...";
+                UIVariables.uiLink.canvasMission.GetComponent<MissionScript>().DesactiveTxt();
+                col.gameObject.GetComponent<AudioSource>().PlayOneShot(SoundWin);
+                ///StartCoroutine(ChargementScene());
+                LogicManager.Instance.IsLevelWin = true;
             }
         }		
 	}
 
-    IEnumerator ChargementScene()
+    /*IEnumerator ChargementScene()
     {
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(LevelToLoad);
-    }
+    }*/
 	
 	
 }

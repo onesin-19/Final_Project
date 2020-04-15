@@ -18,6 +18,8 @@ public class PlayerStats
     public static int TotalKill { get { return PlayerKill + TowerKill; } }*/
     public static int Score { get; set; }
     public static bool IsPlayerDead { get; set; }
+    public static bool HasSaveSurvivor { get; set; } = true;
+
     //private static int currency = 100;
     private static float hp;
     private static int currentLevel;
@@ -33,6 +35,7 @@ public class PlayerStats
         Score = initScore;
         Hp = initialHp;
         CurrentLevel = startingLevel;
+        HasSaveSurvivor = true;
     }
 
     /*public static int Currency

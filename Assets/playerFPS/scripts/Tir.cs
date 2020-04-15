@@ -41,7 +41,7 @@ public class Tir : MonoBehaviour {
             canFire = false;
         }
         
-        UIManager.Instance.UpdateTxtCartouches(cartouches, max_cartouches, chargeurs);
+//        UIManager.Instance.UpdateTxtCartouches(cartouches, max_cartouches, chargeurs);
 
         switch (Automatic)
         {

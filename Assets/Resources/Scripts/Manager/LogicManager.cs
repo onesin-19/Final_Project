@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class LogicManager : Flow {
     #region Singleton
@@ -25,7 +26,7 @@ public class LogicManager : Flow {
 
     override public void Refresh()
     {
-        if (PlayerStats.IsPlayerDead||SurvivorManager.Instance.survivor.isDead)
+        if (PlayerStats.IsPlayerDead||!PlayerStats.HasSaveSurvivor/*SurvivorManager.Instance.survivor.isDead*/)
             LevelLost();
         else if(IsLevelWin)
             LevelWon();
@@ -42,7 +43,9 @@ public class LogicManager : Flow {
 
     public void LevelWon()
     {
-        Debug.Log("level is win");
+        PlayerManager.Instance.player.GetComponent<FirstPersonController>().UnlockMouse();
+        PlayerManager.Instance.player.GetComponent<FirstPersonController>().enabled = false;
+        Main.Instance.StartCoroutine(GameOver(true));
         /*UIManager.Instance.ShowVictory();
         //Change scene
         TimeManager.Instance.AddTimedAction(new TimedAction(() =>
@@ -51,23 +54,19 @@ public class LogicManager : Flow {
         }, 4f));*/
     }
 
-    IEnumerator GameOver()
+    IEnumerator GameOver(bool isWin)
     {
         yield return new WaitForSeconds(3f);
-        Main.Instance.ChangeCurrentFlow();
+        Main.Instance.ChangeCurrentFlow(isWin);
     }
     public void LevelLost()
     {
-        Main.Instance.StartCoroutine(GameOver());
+        Main.Instance.StartCoroutine(GameOver(false));
         //UIManager.Instance.ShowBloodScreen();
         /*TimeManager.Instance.AddTimedAction(new TimedAction(() =>
         {
             Main.Instance.ChangeCurrentFlow();
         }, 3f));*/
     }
-
-    public void GameFinish()
-    {
-        //------------------TODO----------------- Implement
-    }
+    
 }

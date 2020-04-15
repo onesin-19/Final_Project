@@ -13,6 +13,7 @@ public class ScriptMenu : MonoBehaviour
     public void PlayTheGame()
     {
         //SceneManager.LoadScene("level1");
+        PlayerStats.resetAllStats();
         GameVariables.Instance.sceneFader.FadeTo("level1");
     }
 

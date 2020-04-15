@@ -87,23 +87,27 @@ public class Main : MonoBehaviour
 
         //Scene Loading Delegate
         SceneManager.sceneLoaded += OnSceneLoaded;
+        
+        if (SceneManager.GetActiveScene().name == "level2")
+            game.IsThereSurvivor = true;
         if (SceneManager.GetActiveScene().name == "menu")
         {
-            currentFlow = game;
-            isInMenuScene = false;
+            currentFlow = menuFlow;
+            isInMenuScene = true;
         }
         else if (SceneManager.GetActiveScene().name == "level1"||
-                 SceneManager.GetActiveScene().name == "level2"||SceneManager.GetActiveScene().name == "level3")
+                 SceneManager.GetActiveScene().name == "level2"||
+                 SceneManager.GetActiveScene().name == "level3")
         {
-            currentFlow = menuFlow;
+            currentFlow = game;
             //ambiance.playMapMusic();
-            isInMenuScene = true;
+            isInMenuScene = false;
             
         }
         else
         {
             Debug.LogWarning("Not supposed to happen. Wrong scene name. Loading Room Flow.");
-            currentFlow = menuFlow;
+            currentFlow = game;
         }
 
         if (SceneManager.GetActiveScene().name == "level1")
@@ -112,6 +116,7 @@ public class Main : MonoBehaviour
             time = video.clip.length;
         }
         
+
     }
 
     private void Start()
@@ -127,12 +132,17 @@ public class Main : MonoBehaviour
             currentTime = video.time;
             if (currentTime < time)
             {
-           
-                PlayerManager.Instance.player.SetActive(false);
-                PlayerManager.Instance.player.GetComponent<FirstPersonController>().UnlockMouse();
-                UIManager.Instance.HideUI();
+
+                if (PlayerManager.Instance.player)
+                {
+                    PlayerManager.Instance.player.SetActive(false);
+                    PlayerManager.Instance.player.GetComponent<FirstPersonController>().UnlockMouse();
+                    UIManager.Instance.HideUI();
+                }
+               
             }
-            else {
+            else
+            {
                 currentFlow.Refresh();
                 canRefresh = true;
                 PlayerManager.Instance.player.SetActive(true);
@@ -162,20 +172,29 @@ public class Main : MonoBehaviour
         currentFlow.EndFlow();
     }
 
-    public void ChangeCurrentFlow()
+    public void ChangeCurrentFlow(bool isWin)
     {
         EndFlow();
         //sceneTransition = gameObject.GetComponent<SceneTransition>();
-        if (!isInMenuScene)
+        if (!isWin)
         {
-            //sceneTransition.loadMenuScene();
-            SceneManager.LoadScene("menu");
-            isInMenuScene = true;
+            sceneTransition.loadMenuScene();
+            Debug.Log("changement de scene");
+            //SceneManager.LoadScene("menu");
+            //isInMenuScene = true;
         }
         else
         {
-            sceneTransition.loadLevelScene();
-            isInMenuScene = false;
+            if (currentSceneName=="level1")
+            {
+                SceneManager.LoadScene("level2");
+            }
+            else if (currentSceneName=="level2")
+            {
+                SceneManager.LoadScene("menu");
+            }
+            //sceneTransition.loadLevelScene();
+            //isInMenuScene = false;
         }
 
         //instance = null;
@@ -194,13 +213,14 @@ public class Main : MonoBehaviour
             currentFlow = menuFlow;
         }*/
         //Make sure this is called only once.
-        if (currentSceneName != lastSceneName&&!PlayerStats.IsPlayerDead)
+        if (/*currentSceneName != "menu"lastSceneName*/!isInMenuScene&&!PlayerStats.IsPlayerDead&&PlayerStats.HasSaveSurvivor)
         {
             //grabbableObjects.Clear();
             //interactObjects.Clear();
             currentFlow.PreInitialize();
             currentFlow.Initialize();
             lastSceneName = currentSceneName;
+            isInMenuScene = true;
         }
     }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class PauseManager : Flow
 {
@@ -53,9 +54,13 @@ public class PauseManager : Flow
         if (!isActive)
         {
             Time.timeScale = 0f;
+            PlayerManager.Instance.player.GetComponent<FirstPersonController>().UnlockMouse();
+            PlayerManager.Instance.player.GetComponent<FirstPersonController>().enabled=false;
+
         }
         else
         {
+            PlayerManager.Instance.player.GetComponent<FirstPersonController>().enabled=true;
             Time.timeScale = 1f;
         }
 

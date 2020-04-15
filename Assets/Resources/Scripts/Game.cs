@@ -5,9 +5,9 @@ public class Game : Flow
 {
 
     #region Singleton
-    static private Game instance = null;
+    private static Game instance = null;
 
-    static public Game Instance {
+    public static Game Instance {
         get {
             return instance ?? (instance = new Game());
         }
@@ -21,16 +21,9 @@ public class Game : Flow
     PlayerManager playerManager;
     InputManager inputManager;
 
-    //TowerManager towerManager;
-    //TrapManager trapManager;
-
     //WaveManager waveManager;
     EnemyManager enemyManager;
-
-    //PodManager podManager;
-    //ArrowManager arrowManager;
-    //rojectileManager projectileManager;
-
+    
     UIManager uiManager;
 
     private PauseManager pauseManager;
@@ -43,6 +36,7 @@ public class Game : Flow
     private bool sceneEnded;
     private bool playerFixed = false;
     private ushort frameCount = 0;
+    public bool IsThereSurvivor;
 
     override public void PreInitialize()
     {
@@ -53,17 +47,11 @@ public class Game : Flow
         uiManager = UIManager.Instance;
         playerManager = PlayerManager.Instance;
         inputManager = InputManager.Instance;
-
-        //towerManager = TowerManager.Instance;
-        //trapManager = TrapManager.Instance;
-
+        
         //waveManager = WaveManager.Instance;
         enemyManager = EnemyManager.Instance;
         pauseManager = PauseManager.Instance;
         survivorManager = SurvivorManager.Instance;
-        //podManager = PodManager.Instance;
-        //arrowManager = ArrowManager.Instance;
-        //projectileManager = ProjectileManager.Instance;
 
         //ambianceManager = AmbianceManager.Instance;
 
@@ -75,18 +63,12 @@ public class Game : Flow
         pauseManager.PreInitialize();
         playerManager.PreInitialize();
         inputManager.PreInitialize();
-
-        //towerManager.PreInitialize();
-        //trapManager.PreInitialize();
-
+        
         enemyManager.PreInitialize();
-        survivorManager.PreInitialize();
+        if(IsThereSurvivor)
+            survivorManager.PreInitialize();
         //waveManager.PreInitialize();
-
-        //podManager.PreInitialize();
-        //arrowManager.PreInitialize();
-        //projectileManager.PreInitialize();
-
+        
         //ambianceManager.PreInitialize();
 
         PreInitializeMap();
@@ -101,18 +83,12 @@ public class Game : Flow
         pauseManager.Initialize();
         playerManager.Initialize();
         inputManager.Initialize();
-
-        //towerManager.Initialize();
-        //trapManager.Initialize();
         
         enemyManager.Initialize();
-        survivorManager.Initialize();
+        if(IsThereSurvivor)
+            survivorManager.Initialize();
         //waveManager.Initialize();
-
-        //podManager.Initialize();
-        //arrowManager.Initialize();
-        //projectileManager.Initialize();
-
+        
         //ambianceManager.Initialize();
 
         //Setup Variables
@@ -139,13 +115,9 @@ public class Game : Flow
             //trapManager.Refresh();
 
             enemyManager.Refresh();
-            survivorManager.Refresh();
+            if(IsThereSurvivor)
+                survivorManager.Refresh();
             //waveManager.Refresh();
-
-            //podManager.Refresh();
-            //arrowManager.Refresh();
-            //projectileManager.Refresh();
-
             //ambianceManager.Refresh();
         }
     }
@@ -166,12 +138,9 @@ public class Game : Flow
             //trapManager.PhysicsRefresh();
             
             enemyManager.PhysicsRefresh();
-            survivorManager.PhysicsRefresh();
+            if(IsThereSurvivor)
+                survivorManager.PhysicsRefresh();
             //waveManager.PhysicsRefresh();
-
-            //podManager.PhysicsRefresh();
-            //arrowManager.PhysicsRefresh();
-            //projectileManager.PhysicsRefresh();
 
             //ambianceManager.PhysicsRefresh();
         }
@@ -188,16 +157,10 @@ public class Game : Flow
         playerManager.EndFlow();
         inputManager.EndFlow();
 
-        //towerManager.EndFlow();
-        //trapManager.EndFlow();
-        
         enemyManager.EndFlow();
-        survivorManager.EndFlow();
+        if(IsThereSurvivor)
+            survivorManager.EndFlow();
         //waveManager.EndFlow();
-
-        //podManager.EndFlow();
-        //arrowManager.EndFlow();
-        //projectileManager.EndFlow();
 
         //ambianceManager.EndFlow();
 
@@ -213,18 +176,6 @@ public class Game : Flow
 
     private void InitializeMap()
     {
-        //Create grid to place items
-        //InitGrid();
-
-        //Create enemy start/end point
-        //StartEndPath(this.gameVariables.pathTilesCoords[0], this.gameVariables.pathTilesCoords[this.gameVariables.pathTilesCoords.Count - 1]);
-
-        //Create enemy path on grid
-        //PlacePointInMap();
-
-        //Spawn items on map
-        //SpawnItemsOnGrid();
-
         //Spawn player at position
         SpawnPlayer();
 
@@ -241,69 +192,5 @@ public class Game : Flow
         this.playerManager.player.transform.position = this.mapVariables.playerSpawnPosition.position;
 
     }
-
-   
-
-   /* private void InitGrid()
-    {
-        //Init grids holder
-        this.gameVariables.gridsHolder = new GameObject("GridsStuff");
-
-        //Init hidden grid
-        this.mapVariables.hiddenGrid = GameObject.Instantiate<Grid>(this.mapVariables.hiddenGridPrefab, this.gameVariables.gridsHolder.transform);
-
-        //Init map grid entity
-        this.mapVariables.mapGrid = new GridEntity("MapMap", this.mapVariables.hiddenGrid, this.mapVariables.mapStartPointInMap, this.gameVariables.mapRows, this.gameVariables.mapColumns, this.gameVariables.inactiveTilesCoords, this.gameVariables.pathTilesCoords, this.mapVariables.tileSidesPrefab);
-
-    }*/
-
-    /*private void SpawnItemsOnGrid()
-    {
-        //Get info package
-        //Dictionary<Vector2, TowerType> towersInfo = MapInfoPck.Instance.TileTowerInfos;
-        //Dictionary<Vector2, TrapType> trapsInfo = MapInfoPck.Instance.TileTrapInfos;
-
-        //generates towers without vr
-        //MapInfoPck.Instance.TestPopulate();
-
-        //Towers
-        foreach (KeyValuePair<Vector2, TowerType> info in towersInfo)
-        {
-            //Get tile Coords
-            Vector2 tileCoords = this.mapVariables.mapGrid.GetTileCoords(info.Key);
-
-            //Get tileCenter
-            Vector3 tileCenter = this.mapVariables.mapGrid.GetTileCenterFixed(tileCoords);
-
-            //Create obj
-            Tower tower = towerManager.CreateTower(info.Value, tileCenter);
-        }
-
-        //Traps
-        foreach (KeyValuePair<Vector2, TrapType> info in trapsInfo)
-        {
-            //Get tile Coords
-            Vector2 tileCoords = this.mapVariables.mapGrid.GetTileCoords(info.Key);
-
-            //Get tileCenter
-            Vector3 tileCenter = this.mapVariables.mapGrid.GetTileCenterFixed(tileCoords);
-
-            //Create obj
-            trapManager.CreateTrap(info.Value, tileCenter);
-        }
-    }*/
-
-    /*private void StartEndPath(Vector2 startPath, Vector2 endPath)
-    {
-        this.mapVariables.enemyStart.transform.position = this.mapVariables.mapGrid.GetTileCenterFixed(this.mapVariables.mapGrid.GetTileCoords(startPath));
-        this.mapVariables.enemyEnd.transform.position = this.mapVariables.mapGrid.GetTileCenterFixed(this.mapVariables.mapGrid.GetTileCoords(endPath));
-        this.mapVariables.enemyPoint.transform.position = this.mapVariables.mapGrid.GetTileCenterFixed(this.mapVariables.mapGrid.GetTileCoords(startPath));
-    }*/
-
-    /*private void PlacePointInMap()
-    {
-        GameObject Point = this.mapVariables.Waypoint;
-        
-        SurvivorManager.Instance.SetPoints(Point.transform);
-    }*/
+    
 }
