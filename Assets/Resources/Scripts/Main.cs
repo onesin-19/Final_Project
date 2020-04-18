@@ -187,11 +187,13 @@ public class Main : MonoBehaviour
         {
             if (currentSceneName=="level1")
             {
-                SceneManager.LoadScene("level2");
+                sceneTransition.loadScene2();
+                //SceneManager.LoadScene("level2");
             }
             else if (currentSceneName=="level2")
             {
-                SceneManager.LoadScene("menu");
+                sceneTransition.loadMenuScene();
+                //SceneManager.LoadScene("menu");
             }
             //sceneTransition.loadLevelScene();
             //isInMenuScene = false;

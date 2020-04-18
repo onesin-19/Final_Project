@@ -130,14 +130,14 @@ public class EnemyManager : Flow
         
     }
 
-    public Enemy FindFirstTargetInRange(Vector3 position, float range)
+   /* public Enemy FindFirstTargetInRange(Vector3 position, float range)
     {
         List<Enemy> enemyInRange = EnemiesInRange(position, range);
         Enemy enemy = null;
         if (enemyInRange.Count > 0)
             enemy = enemyInRange[0];
         return enemy;
-    }
+    */
 
     public List<Enemy> EnemiesInRange(Vector3 position, float range)
     {

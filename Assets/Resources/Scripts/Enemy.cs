@@ -103,7 +103,8 @@ public class Enemy : MonoBehaviour {
         anim.SetTrigger("dead");
         anim.SetBool("attack", false);
         GetComponent<Enemy>().enabled = false;
-        GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;     
+        GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+        GetComponent<UnityEngine.AI.NavMeshObstacle>().enabled = true;
         AudioEnnemi.GetComponent<AudioSource>().Stop();
         AudioEnnemi.GetComponent<AudioSource>().PlayOneShot(soundDead);
         EnemyManager.Instance.EnemyDied(this);

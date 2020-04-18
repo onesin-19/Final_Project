@@ -13,7 +13,7 @@ public class Survivor : MonoBehaviour
     public float startHealth = 5;
     public bool isDead;
     private static readonly int Run = Animator.StringToHash("run");
-    private Rigidbody rb;
+    //private Rigidbody rb;
     
     public void Initialize()
     {
@@ -23,7 +23,7 @@ public class Survivor : MonoBehaviour
         anim = GetComponent<Animator>();
         agent.speed = Random.Range(minSpeed,maxSpeed);
         health = startHealth;
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class Survivor : MonoBehaviour
         if(health<=startHealth/2)
             anim.SetBool("injuredRun",true);
         //si atteint le dernier waypoint ou tres loin du player
-        if (Vector3.Distance(transform.position,SurvivorManager.Instance.waypoints[SurvivorManager.Instance.waypoints.Length - 1].position)<=2||
+        if (Vector3.Distance(transform.position,SurvivorManager.Instance.waypoints[SurvivorManager.Instance.waypoints.Length - 1].position)<=.5f||
             Vector3.Distance(transform.position,PlayerManager.Instance.player.transform.position)>10)
         {
             anim.SetBool("injuredRun",false);
@@ -50,7 +50,7 @@ public class Survivor : MonoBehaviour
         if (SurvivorManager.Instance.waypoints.Length > 0)
         {
 
-            if (Vector3.Distance(transform.position, target.position) <= 2f)
+            if (agent.remainingDistance<= .5f)
             {
 
                 //if survivor is on the last waypoint

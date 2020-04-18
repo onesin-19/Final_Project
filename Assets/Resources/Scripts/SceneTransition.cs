@@ -14,14 +14,14 @@ public class SceneTransition : MonoBehaviour
     [FormerlySerializedAs("LevelScene")] 
     public string levelScene = "level1";
 
-    [Header("Alt Scenes")]
-    public string nameSceneAction;
-    public string nameBarScene;
-    public string nameTowersScene;
+    [FormerlySerializedAs("nameSceneAction")] [Header("Alt Scenes")]
+    public string scene2;
+    public string scene3;
+    /*public string nameTowersScene;
     public string nameTrapScene;
     public string enemySceneName;
     public string uiSceneName;
-    public string mapSceneName;
+    public string mapSceneName;*/
 
     public void loadMenuScene()
     {
@@ -33,16 +33,16 @@ public class SceneTransition : MonoBehaviour
         SceneManager.LoadSceneAsync(levelScene);
     }
 
-    public void loadActionScene()
+    public void loadScene2()
     {
-        SceneManager.LoadScene(nameSceneAction);
+        SceneManager.LoadScene(scene2);
     }
 
-    public void loadBarScene()
+    public void loadScene3()
     {
-        SceneManager.LoadScene(nameBarScene);
+        SceneManager.LoadScene(scene3);
     }
-    public void loadTowerScene()
+    /*public void loadTowerScene()
     {
         SceneManager.LoadScene(nameTowersScene);
         Debug.Log("Tower scene");
@@ -63,5 +63,5 @@ public class SceneTransition : MonoBehaviour
     public void loadMapScene()
     {
         SceneManager.LoadScene(mapSceneName);
-    }
+    }*/
 }

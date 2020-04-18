@@ -61,6 +61,8 @@ public class LogicManager : Flow {
     }
     public void LevelLost()
     {
+        UIManager.Instance.ShowMissionCanvas();
+        UIManager.Instance.missionUI.text= "ECHEC MISSION...";
         Main.Instance.StartCoroutine(GameOver(false));
         //UIManager.Instance.ShowBloodScreen();
         /*TimeManager.Instance.AddTimedAction(new TimedAction(() =>

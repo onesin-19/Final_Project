@@ -12,8 +12,6 @@ public class GameVariables : MonoBehaviour {
         if (Instance == null) {
             Instance = this;
             //DontDestroyOnLoad(this.gameObject);
-            //InitPathTilesCoords();
-            //InitInactiveTiles();
         }
         else {
             Destroy(this.gameObject);

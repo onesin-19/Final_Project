@@ -16,10 +16,10 @@ public class PlayerManager : Flow {
     #endregion
 
     public GameObject player;
-    public bool changeScene;
+    //public bool changeScene;
     override public void PreInitialize()
     {
-        changeScene = false;
+        //changeScene = false;
         //player = (GameObject.Instantiate(Resources.Load("Prefabs/Player/FPSController")) as GameObject).GetComponent<Player>();
         /*if (Main.Instance.isInRoomScene) {
             player.transform.position = player.startingRoomPos;

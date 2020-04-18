@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 64000010761939136}
   - component: {fileID: 740328905800429680}
   - component: {fileID: -7450541547917340894}
+  - component: {fileID: 9218061088958416848}
   m_Layer: 0
   m_Name: Barrel_v1_LD3
   m_TagString: baril
@@ -123,3 +124,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.619721, y: 1.0303771, z: 0.6103063}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &9218061088958416848
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012581530574}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.31, y: 0.51500005, z: 0.305}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

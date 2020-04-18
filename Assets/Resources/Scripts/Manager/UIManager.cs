@@ -25,7 +25,6 @@ public class UIManager : Flow {
     public Image ImLife;
     public Text missionUI;
     public Text PseudoUI;
-    public Text leaderBoard;
     public Image bloodScreen;
 
    /* private TextUI headshot;
@@ -90,7 +89,6 @@ public class UIManager : Flow {
         this.lifeUItxt.gameObject.SetActive(false);
         this.missionUI.gameObject.SetActive(false);
         this.PseudoUI.gameObject.SetActive(false);
-        this.leaderBoard.gameObject.SetActive(false);
         this.bloodScreen.gameObject.SetActive(false);
     }
 
@@ -101,7 +99,6 @@ public class UIManager : Flow {
         this.lifeUItxt.gameObject.SetActive(true);
         this.missionUI.gameObject.SetActive(true);
         this.PseudoUI.gameObject.SetActive(true);
-        this.leaderBoard.gameObject.SetActive(true);
         this.bloodScreen.gameObject.SetActive(true);
     }
 

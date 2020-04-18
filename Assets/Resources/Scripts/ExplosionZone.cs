@@ -17,6 +17,11 @@ public class ExplosionZone : MonoBehaviour
         if (Vector3.Distance(PlayerManager.Instance.player.transform.position,transform.position)<radius)
             PlayerManager.Instance.playerDegats(radius-(int)(Vector3.Distance(PlayerManager.Instance.player.transform.position,transform.position)));
         
+        if (SurvivorManager.Instance.survivor!=null)
+        {
+            if (Vector3.Distance(SurvivorManager.Instance.survivor.transform.position,transform.position)<radius)
+                SurvivorManager.Instance.SurvivorDegats(radius-(int)(Vector3.Distance(SurvivorManager.Instance.survivor.transform.position,transform.position)));
+        }
         GameObject[] barrels = GameObject.FindGameObjectsWithTag("baril");
         float minDist = radius;
         GameObject barel=null;
