@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,6 +13,8 @@ public class ChoiceStartScene : MonoBehaviour
     public Dropdown dropdownbox;
     void Start()
     {
+        JsonListWrapper<User> us=JsonManager.JsonToStringList<User>("jsonSaveData.json");
+        connectUsers.users = us.list;
         DB_Manager.Instance.connectUsers = connectUsers;
         if (connectUsers.users.Count==0)
         {

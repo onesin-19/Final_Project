@@ -63,7 +63,7 @@ public class PlayerManager : Flow {
     
     public void playerDegats(int Damage)
     {
-        if (!PlayerStats.IsPlayerDead)
+        if (!PlayerStats.IsPlayerDead&&!LogicManager.Instance.IsLevelWin&&!LogicManager.Instance.IsLevelLost)
         {
             PlayerStats.subtractHp(Damage);
         

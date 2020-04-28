@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc1f54fadbe34b439933b240c8b0b6c, type: 3}
   m_Name: ConnectUsers
   m_EditorClassIdentifier: 
-  users:
-  - pseudo: lionel.messi
-    isPlay: 0
+  users: []

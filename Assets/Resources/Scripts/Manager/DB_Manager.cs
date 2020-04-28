@@ -5,6 +5,7 @@ using MySql.Data.MySqlClient;
 using System;
 using UnityEngine.UI;
 using System.Text.RegularExpressions;
+using Managers;
 using UnityEngine.SceneManagement;
 
 public class DB_Manager : MonoBehaviour {
@@ -27,9 +28,6 @@ public class DB_Manager : MonoBehaviour {
 
     #endregion
     
-    [Header("DATABASE")]
-    public string host;
-    public string database, username, password;
     MySqlConnection con;
     /*[Header("REGISTER")]
     public Canvas CanvasRegister;
@@ -47,6 +45,11 @@ public class DB_Manager : MonoBehaviour {
     public int IPoints;
     [Header("All Connected Users")]
     public Users connectUsers;
+
+    [Header("DATABASE")] public string host;
+    public string database, username;
+    [HideInInspector]
+    public string password;
     private void Start()
     {
         //connect_BDD();
@@ -287,11 +290,23 @@ public class DB_Manager : MonoBehaviour {
                     IPoints = (int)MyReader["points"];
                     SceneManager.LoadScene("menu");
                     User user=new User(IPseudo,true);
-                    if(!connectUsers.checkPlayer(IPseudo))
+                    
+                    JsonListWrapper<User> us=JsonManager.JsonToStringList<User>("jsonSaveData.json");
+                    connectUsers.users = us.list;
+
+                    if (!connectUsers.checkPlayer(IPseudo))
+                    {
                         connectUsers.users.Add(user);
+                        string json = JsonManager.StringListToJSon(connectUsers.users);
+                        JsonManager.SaveToStreamingAsset(json,"jsonSaveData.json");
+                        connectUsers.users = us.list;
+                        
+                    }
                     else
                     {
                         connectUsers.activePlayer(IPseudo);
+                        string json = JsonManager.StringListToJSon(connectUsers.users);
+                        JsonManager.SaveToStreamingAsset(json,"jsonSaveData.json");
                     }
                 }
                 else
@@ -312,14 +327,14 @@ public class DB_Manager : MonoBehaviour {
 
     public void ShowRegister()
     {
-        ConnectionVariables.instance.CanvasLogin.gameObject.SetActive(false);
-        ConnectionVariables.instance.CanvasRegister.gameObject.SetActive(true);
+        ConnectionVariables.instance.CanvasLogin.gameObject.SetActive(true);
+        ConnectionVariables.instance.CanvasRegister.gameObject.SetActive(false);
     }
 
     public void ShowLogin()
     {
-        ConnectionVariables.instance.CanvasLogin.gameObject.SetActive(true);
-        ConnectionVariables.instance.CanvasRegister.gameObject.SetActive(false);
+        ConnectionVariables.instance.CanvasLogin.gameObject.SetActive(false);
+        ConnectionVariables.instance.CanvasRegister.gameObject.SetActive(true);
     }
 
     public void savePoints()
@@ -369,6 +384,8 @@ public class DB_Manager : MonoBehaviour {
     {
         SceneManager.LoadScene("login");
         connectUsers.users.Remove(connectUsers.getPlayUser());
+        string json = JsonManager.StringListToJSon(connectUsers.users);
+        JsonManager.SaveToStreamingAsset(json,"jsonSaveData.json");
     }
     void OnApplicationQuit()
     {

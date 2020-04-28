@@ -20,6 +20,9 @@ public class PlayerStats
     public static bool IsPlayerDead { get; set; }
     public static bool HasSaveSurvivor { get; set; } = true;
 
+    public static int RequireNbAntidote { get; set; } = 2;
+    public static int NbAntidote { get; set; } = 0;
+
     //private static int currency = 100;
     private static float hp;
     private static int currentLevel;
@@ -36,6 +39,9 @@ public class PlayerStats
         Hp = initialHp;
         CurrentLevel = startingLevel;
         HasSaveSurvivor = true;
+        RequireNbAntidote = 2;
+        NbAntidote = 0;
+
     }
 
     /*public static int Currency

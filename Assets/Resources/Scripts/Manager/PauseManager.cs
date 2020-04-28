@@ -70,6 +70,8 @@ public class PauseManager : Flow
     public void MainMenu()
     {
         Toggle();
+        PlayerManager.Instance.player.GetComponent<FirstPersonController>().UnlockMouse();
+        PlayerManager.Instance.player.GetComponent<FirstPersonController>().enabled=false;
         sceneFader.FadeTo(menuSceneName);
     }
 }

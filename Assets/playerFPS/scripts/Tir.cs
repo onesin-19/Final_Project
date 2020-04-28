@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 
 public class Tir : MonoBehaviour {
@@ -73,7 +74,17 @@ public class Tir : MonoBehaviour {
                         {
                             if (hit.transform.gameObject.tag == "ennemi")
                             {
-                                EnemyManager.Instance.DamageEnemie(hit.transform.gameObject,PlayerStats.damage);
+                                if (GetComponent<Animator>().GetBool("target") &&
+                                     hit.transform.gameObject.GetComponent<Enemy>().type==EnemyType.PARASITE
+                                )
+                                {
+                                    EnemyManager.Instance.killEnemy(hit.transform.gameObject);
+                                }
+                                else
+                                {
+                                    EnemyManager.Instance.DamageEnemie(hit.transform.gameObject, PlayerStats.damage);
+                                }
+
                                 //hit.transform.gameObject.GetComponent<dead>().ennemiDead();
                             }
 

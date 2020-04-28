@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8451198634195898082}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: M4A1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 3058698337677927516}
   - component: {fileID: 2922190679057778470}
   - component: {fileID: 3111171578982370054}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: explosion01_128_101
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 8324018309553946176}
   - component: {fileID: 8788261131211646106}
   - component: {fileID: 1313879334551914290}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: M4A1_Sopmod_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4138022682902391521}
   - component: {fileID: 4138022682902391527}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MiniMapCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4138022682902391522}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 11.14, z: 0}
+  m_LocalPosition: {x: 0, y: 30, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4135149200019757848}
@@ -272,7 +272,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: d7cb574bca2dcb241aced86ce4ba2314, type: 2}
   m_TargetDisplay: 0
@@ -293,7 +293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149192594744858}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: upper_arm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 4135149197411198876}
   - component: {fileID: 4295336010003253070}
   - component: {fileID: 4052315753117816214}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149200331179860}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: upper_arm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,7 +454,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149200303324046}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: thumb_02_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149198604832406}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: metarig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -517,7 +517,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149197815599928}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_middle_03_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -547,7 +547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149197777328796}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -577,7 +577,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149197991563090}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_pinky_03_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,7 +607,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149199908055486}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: palm_01_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -641,7 +641,7 @@ GameObject:
   - component: {fileID: 4135149199645914222}
   - component: {fileID: 4114048029563515382}
   - component: {fileID: 4124316318773755526}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Slide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -717,7 +717,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149199015577626}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: hand_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -751,7 +751,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149192320070588}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_pinky_02_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -782,7 +782,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149199522792894}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_index_01_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -813,7 +813,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149192167840770}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: thumb_03_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -843,7 +843,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149200285483114}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Flamme
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -874,7 +874,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149199346911108}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: palm_03_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -905,7 +905,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149197167250198}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: M4A1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -938,7 +938,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149199328044974}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: palm_01_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -970,7 +970,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149200440190664}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_middle_03_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1004,7 +1004,7 @@ GameObject:
   - component: {fileID: 4105092481489467126}
   - component: {fileID: 4057293733518165544}
   - component: {fileID: 4105092480811339354}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Arme2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1194,7 +1194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149198721895724}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: flamme
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -1226,7 +1226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149197758723324}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_ring_01_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1259,7 +1259,7 @@ GameObject:
   - component: {fileID: 4135149197149392998}
   - component: {fileID: 4114048023457345804}
   - component: {fileID: 4124316321030573056}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: M4A1_Sopmod_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1335,7 +1335,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149199626869844}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_middle_02_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1366,7 +1366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149197347501464}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: hand_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1402,7 +1402,7 @@ GameObject:
   - component: {fileID: 4135149199527050116}
   - component: {fileID: 4114048023714911318}
   - component: {fileID: 4124316318645843080}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: M4A1_Sopmod_Magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1477,7 +1477,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149199882478506}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_index_03_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1507,7 +1507,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149198310673548}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_ring_02_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1540,7 +1540,7 @@ GameObject:
   - component: {fileID: 4135149199990639806}
   - component: {fileID: 4114048029823668182}
   - component: {fileID: 4124316318469250194}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: M4A1_Sopmod_Iron_Sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1615,7 +1615,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149199373274872}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: forearm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1648,7 +1648,7 @@ GameObject:
   - component: {fileID: 4135149197996058436}
   - component: {fileID: 4114048029080239726}
   - component: {fileID: 4124316318667997638}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Hammer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1723,7 +1723,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149197497687466}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: thumb_01_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1754,7 +1754,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149197521245974}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_ring_02_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1785,7 +1785,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149199745569754}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: forearm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1816,7 +1816,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149197318140208}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1846,7 +1846,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149200416006382}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_index_02_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1877,7 +1877,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149198217610078}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_ring_03_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1911,7 +1911,8 @@ GameObject:
   - component: {fileID: 4105092440782474734}
   - component: {fileID: 4166653245705315118}
   - component: {fileID: 4057293732805590470}
-  m_Layer: 0
+  - component: {fileID: 188031285598239613}
+  m_Layer: 10
   m_Name: FPSController
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2189,6 +2190,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &188031285598239613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4138447647462497778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98582373a55e19408293f610bc03d97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 8899660796668285481, guid: 146a2f3cb0722554789ab55baa054039, type: 3}
 --- !u!1 &4138447647526497654
 GameObject:
   m_ObjectHideFlags: 0
@@ -2198,7 +2212,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149198148833662}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: thumb_01_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2229,7 +2243,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149197011578454}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_pinky_01_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2260,7 +2274,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149198272715802}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_pinky_03_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2290,7 +2304,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149198404714160}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: palm_02_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2323,7 +2337,7 @@ GameObject:
   - component: {fileID: 4135149197251541264}
   - component: {fileID: 4114048030581168946}
   - component: {fileID: 4124316319419582694}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2398,7 +2412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149199333336332}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_pinky_02_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2429,7 +2443,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149197937110148}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: palm_04_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2460,7 +2474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149197685129834}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_ring_03_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2490,7 +2504,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149200422638014}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: metarig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2525,7 +2539,7 @@ GameObject:
   - component: {fileID: 4114048030320263158}
   - component: {fileID: 4124316318663924998}
   - component: {fileID: 4052315752767530472}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: 1911
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2626,7 +2640,7 @@ GameObject:
   - component: {fileID: 4105092480868243218}
   - component: {fileID: 4057293733187267946}
   - component: {fileID: 4105092481821083570}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Arme1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2809,6 +2823,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AnimFlamme: {fileID: 4052315753117816214}
   AnimFlamme2: {fileID: 3111171578982370054}
+  curZoom: 0
+  zoom: 20
 --- !u!1 &4138447648068721240
 GameObject:
   m_ObjectHideFlags: 0
@@ -2818,7 +2834,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149199436540662}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_middle_01_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2849,7 +2865,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149198038150540}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_index_03_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2881,7 +2897,7 @@ GameObject:
   - component: {fileID: 4135149197154528638}
   - component: {fileID: 4295336006977031684}
   - component: {fileID: 4052315760686842404}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: explosion01_128_101
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2979,7 +2995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4135149199178179144}
   - component: {fileID: 4074505852594499162}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Object001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3103,7 +3119,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149200569330960}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_index_01_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3134,7 +3150,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149198834759894}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_middle_02_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3171,7 +3187,7 @@ GameObject:
   - component: {fileID: 4056021981463037936}
   - component: {fileID: 4052299549452344090}
   - component: {fileID: 3813869643085671825}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -3226,7 +3242,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967039
+    m_Bits: 14391
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3395,7 +3411,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149198939527646}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: palm_03_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3426,7 +3442,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149192155864132}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_pinky_01_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3457,7 +3473,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149199088478468}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: palm_04_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3488,7 +3504,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149192142168322}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: thumb_03_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3518,7 +3534,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149192111121292}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: thumb_02_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3549,7 +3565,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149192101996298}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: palm_02_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3584,7 +3600,7 @@ GameObject:
   - component: {fileID: 4095387168311631082}
   - component: {fileID: 4047588392610044936}
   - component: {fileID: 4067577983925340388}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CameraFPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3636,7 +3652,7 @@ Camera:
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1024
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3681,7 +3697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149197110647394}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_index_02_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3715,7 +3731,7 @@ GameObject:
   - component: {fileID: 4114048022654266280}
   - component: {fileID: 4075228789625779628}
   - component: {fileID: 4124316319516022170}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3806,7 +3822,7 @@ GameObject:
   - component: {fileID: 4135149198120605152}
   - component: {fileID: 4114048029111664338}
   - component: {fileID: 4124316320218662510}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Mag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3881,7 +3897,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149197172859626}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_middle_01_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3913,7 +3929,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4135149199539551468}
   - component: {fileID: 4074505853060526404}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Object001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4037,7 +4053,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4135149199495610084}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: f_ring_01_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4070,7 +4086,7 @@ GameObject:
   - component: {fileID: 8684752151804778536}
   - component: {fileID: 5062464244969906793}
   - component: {fileID: 7656621504046104201}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: M4A1_Sopmod_Magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4147,7 +4163,7 @@ GameObject:
   - component: {fileID: 1657792304248792212}
   - component: {fileID: 1249261612955855042}
   - component: {fileID: 8435962603400401400}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: M4A1_Sopmod_Iron_Sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

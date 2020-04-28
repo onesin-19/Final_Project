@@ -19,6 +19,11 @@ public class UIVariables : MonoBehaviour
     public GameObject canvasMission;
     public GameObject canvas;
     public GameObject PauseMenu;
+
+    public Text NbAntidoteTxt;
+
+    public Text SurvivorLifeTxt;
+    public Image SurvivorUI;
     // public TextMeshProUGUI towerKillsUI;
     //public TextMeshProUGUI totalKillsUI;
 

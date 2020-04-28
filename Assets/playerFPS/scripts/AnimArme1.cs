@@ -1,16 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 
 public class AnimArme1 : MonoBehaviour {
 
     private Animator Anim;
     public Animator AnimFlamme;
 
-    public Animator AnimFlamme2; 
+    public Animator AnimFlamme2;
+
+
+    private float DepartZoom;
+    public float curZoom;
+    public float zoom=20;
     //public bool Target { get; private set; } = true;
     void Start () {
         Anim = GetComponent<Animator>();
-	}
+        DepartZoom = Camera.main.fieldOfView;
+    }
 	
 	
 	void Update () {
@@ -81,15 +88,31 @@ public class AnimArme1 : MonoBehaviour {
         }
 
         //target enemy
-        if (Input.GetKey(KeyCode.Tab)||(Input.GetButton("PS4_Triangle")&&Input.GetButton("PS4_L2")))
+        if (Input.GetButton("Fire2")||(Input.GetButton("PS4_L2")))
         {
+            zoomCam();
             Anim.SetBool("target",true);
         }
-        if (Input.GetKey(KeyCode.Q)||(Input.GetButton("PS4_Triangle")&&Input.GetButton("PS4_R2")))
+        else
         {
             Anim.SetBool("target",false);
+            Camera.main.fieldOfView = DepartZoom;
+            curZoom = DepartZoom;
         }
+        /*if (Input.GetButtonUp("Fire2")||(Input.GetButton("PS4_Triangle")&&Input.GetButton("PS4_R2")))
+        {
+            Anim.SetBool("target",false);
+        }*/
         
 
+    }
+
+    void zoomCam()
+    {
+        curZoom-=1f;
+        if (curZoom > zoom)
+        {
+            Camera.main.fieldOfView = curZoom;
+        }
     }
 }

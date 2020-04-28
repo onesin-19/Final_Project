@@ -1634,7 +1634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1512551608
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2021,16 +2021,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb0ad96eacb920b47a0f3919afeeafce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  host: 127.0.0.1
-  database: game
-  username: Ann
-  password: 
   IPseudo: 
   INom: 
   IPrenom: 
   IEmail: 
   IPoints: 0
   connectUsers: {fileID: 11400000, guid: e6affd903b7cdeb468bcf9e4e31437f9, type: 2}
+  host: 127.0.0.1
+  database: game
+  username: Ann
+  password: 
 --- !u!4 &1815336246
 Transform:
   m_ObjectHideFlags: 0

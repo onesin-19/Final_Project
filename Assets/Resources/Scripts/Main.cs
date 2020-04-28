@@ -90,6 +90,8 @@ public class Main : MonoBehaviour
         
         if (SceneManager.GetActiveScene().name == "level2")
             game.IsThereSurvivor = true;
+        else
+            game.IsThereSurvivor = false;
         if (SceneManager.GetActiveScene().name == "menu")
         {
             currentFlow = menuFlow;
@@ -143,6 +145,7 @@ public class Main : MonoBehaviour
             }
             else
             {
+                UIManager.Instance.HideCanvas();
                 currentFlow.Refresh();
                 canRefresh = true;
                 PlayerManager.Instance.player.SetActive(true);
@@ -175,7 +178,8 @@ public class Main : MonoBehaviour
     public void ChangeCurrentFlow(bool isWin)
     {
         EndFlow();
-        //sceneTransition = gameObject.GetComponent<SceneTransition>();
+        PlayerManager.Instance.player.GetComponent<FirstPersonController>().UnlockMouse();
+        PlayerManager.Instance.player.GetComponent<FirstPersonController>().enabled=false;
         if (!isWin)
         {
             sceneTransition.loadMenuScene();
@@ -192,14 +196,16 @@ public class Main : MonoBehaviour
             }
             else if (currentSceneName=="level2")
             {
-                sceneTransition.loadMenuScene();
-                //SceneManager.LoadScene("menu");
+                sceneTransition.loadScene3();
+                //SceneManager.LoadScene("level3");
             }
+            else if (currentSceneName=="level3")
+                SceneManager.LoadScene("menu");
+            //sceneTransition.loadMenuScene();
             //sceneTransition.loadLevelScene();
             //isInMenuScene = false;
         }
 
-        //instance = null;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

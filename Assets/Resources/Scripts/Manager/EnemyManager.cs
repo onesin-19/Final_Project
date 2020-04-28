@@ -44,10 +44,11 @@ public class EnemyManager : Flow
     {
 
         //SetPoints(MapVariables.instance.enemyParentPoint.transform);
-        foreach (EnemyType etype in System.Enum.GetValues(typeof(EnemyType))) //fill the resource dictionary with all the prefabs
+        foreach (EnemyType etype in System.Enum.GetValues(typeof(EnemyType))) 
         {
-            enemyPrefabDict.Add(etype, Resources.Load<GameObject>("Prefabs/Enemy/" + etype.ToString())); //Each enum matches the name of the enemy perfectly
+            enemyPrefabDict.Add(etype, Resources.Load<GameObject>("Prefabs/Enemy/" + etype.ToString()));
         }
+        
         GameObject[] ennemis = GameObject.FindGameObjectsWithTag("ennemi");
 
         foreach (GameObject en in ennemis)
@@ -60,7 +61,7 @@ public class EnemyManager : Flow
 
     override public void Refresh()
     {
-        SpawnEnemy(enemyPrefabDict[EnemyType.PARASITE]);
+        SpawnEnemy(EnemyType.PARASITE);
         foreach (Enemy e in enemies)
             if (!e.isDead)
             {
@@ -103,7 +104,7 @@ public class EnemyManager : Flow
         toRemove.Push(enemyDied);
     }
 
-    public void SpawnEnemy(GameObject enemy)
+    public void SpawnEnemy(EnemyType type)
     {
         //ambiance.playSpawnSounds();
         foreach (Spawner spw in LevelVariables.instance.Spawn)
@@ -115,8 +116,9 @@ public class EnemyManager : Flow
             if(distance < spw.DistanceSpawn && Time.time>spw.NextSpawn)
             {
                 spw.NextSpawn = Time.time + spw.SpawnRate;
-                GameObject obj=GameObject.Instantiate(enemy, enemyStart.position, Quaternion.identity) as  GameObject;
+                GameObject obj=GameObject.Instantiate(enemyPrefabDict[type], enemyStart.position, Quaternion.identity) as  GameObject;
                 Enemy e = obj.GetComponent<Enemy>();
+                e.type = type;
                 e.Initialize();
                 toAdd.Push(e);
             
@@ -176,7 +178,22 @@ public class EnemyManager : Flow
        if(ene) 
            ene.TakeDamage(damage);
     }
+    public void killEnemy(GameObject enemy)
+    {
+        Enemy ene = null;
+        int i = 0;
+        while (i<enemies.Count&&ene==null)
+        {
+            if (enemies[i].transform.gameObject==enemy)
+            {
+                ene = enemies[i];
+            }
 
+            i++;
+        }
+        if(ene) 
+            ene.kill();
+    }
     //decimalSpeed, has to be a decimal 0.01 - 0.99
     /*public void SlowEnemiesInRange(Vector3 position, float range, float decimalSpeed, float duration)
     {

@@ -40,4 +40,14 @@ public class ConnectionVariables : MonoBehaviour
     {
         DB_Manager.Instance.ShowLogin();
     }
+    
+    public void Register()
+    {
+        DB_Manager.Instance.Register();
+    }
+    
+    public void ShowRegister()
+    {
+        DB_Manager.Instance.ShowRegister();
+    }
 }

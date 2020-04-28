@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour {
     public GameObject bloodEffect;
     private float health;
     public float startHealth = 5;
+    public EnemyType type;
     public void Initialize () {
         health = startHealth;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -42,17 +43,26 @@ public class Enemy : MonoBehaviour {
 
         if (SurvivorManager.Instance.survivor!=null)
         {
-            if(Vector3.Distance(PlayerManager.Instance.player.transform.position,transform.position)<=Vector3.Distance(SurvivorManager.Instance.survivor.transform.position,transform.position))
-                target = PlayerManager.Instance.player;
+            if (Vector3.Distance(PlayerManager.Instance.player.transform.position, transform.position) <=
+                Vector3.Distance(SurvivorManager.Instance.survivor.transform.position, transform.position))
+            {
+                if(Vector3.Distance(PlayerManager.Instance.player.transform.position, SurvivorManager.Instance.waypoints[SurvivorManager.Instance.waypoints.Length - 1].position)>6.2f)
+                    target = PlayerManager.Instance.player;
+                else if(Vector3.Distance(SurvivorManager.Instance.survivor.transform.position,SurvivorManager.Instance.waypoints[SurvivorManager.Instance.waypoints.Length - 1].position)>1f)
+                    target = SurvivorManager.Instance.survivor.gameObject;
+            }
             else
             {
-                target = SurvivorManager.Instance.survivor.gameObject;
+                if(Vector3.Distance(SurvivorManager.Instance.survivor.transform.position,SurvivorManager.Instance.waypoints[SurvivorManager.Instance.waypoints.Length - 1].position)>1f)
+                    target = SurvivorManager.Instance.survivor.gameObject;
+                else if(Vector3.Distance(PlayerManager.Instance.player.transform.position, SurvivorManager.Instance.waypoints[SurvivorManager.Instance.waypoints.Length - 1].position)>6.2f)
+                    target = PlayerManager.Instance.player;
             } 
         }
-        
-        
+
+
         distance = Vector3.Distance(target.transform.position, transform.position);
-        if(distance<walkDistance)
+        if(distance<walkDistance&&!LogicManager.Instance.IsLevelWin&&!LogicManager.Instance.IsLevelLost)
         {
             anim.SetBool("walk", true);
             anim.SetBool("attack", false);
@@ -89,7 +99,7 @@ public class Enemy : MonoBehaviour {
         {
             PlayerManager.Instance.playerDegats(Damage);
         }
-        else if (target==SurvivorManager.Instance.survivor.gameObject)
+        else if (SurvivorManager.Instance.survivor!=null&&target==SurvivorManager.Instance.survivor.gameObject)
         {
             SurvivorManager.Instance.SurvivorDegats(Damage);
         }
@@ -123,6 +133,10 @@ public class Enemy : MonoBehaviour {
         {
             ennemiDead();
         }
+    }
+    public void kill()
+    {
+        TakeDamage(health);
     }
     public void activationIskinematic()
     {

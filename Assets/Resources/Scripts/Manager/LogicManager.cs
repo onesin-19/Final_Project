@@ -19,6 +19,7 @@ public class LogicManager : Flow {
     #endregion
 
     public bool IsLevelWin { get; set; }
+    public bool IsLevelLost { get; set; }
 
     override public void PreInitialize() { }
 
@@ -26,7 +27,7 @@ public class LogicManager : Flow {
 
     override public void Refresh()
     {
-        if (PlayerStats.IsPlayerDead||!PlayerStats.HasSaveSurvivor/*SurvivorManager.Instance.survivor.isDead*/)
+        if (PlayerStats.IsPlayerDead||!PlayerStats.HasSaveSurvivor||IsLevelLost/*SurvivorManager.Instance.survivor.isDead*/)
             LevelLost();
         else if(IsLevelWin)
             LevelWon();
@@ -43,8 +44,7 @@ public class LogicManager : Flow {
 
     public void LevelWon()
     {
-        PlayerManager.Instance.player.GetComponent<FirstPersonController>().UnlockMouse();
-        PlayerManager.Instance.player.GetComponent<FirstPersonController>().enabled = false;
+       
         Main.Instance.StartCoroutine(GameOver(true));
         /*UIManager.Instance.ShowVictory();
         //Change scene

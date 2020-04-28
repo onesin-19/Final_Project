@@ -26,7 +26,9 @@ public class UIManager : Flow {
     public Text missionUI;
     public Text PseudoUI;
     public Image bloodScreen;
-
+    public Text NbAntidoteTxt;
+    public Text SurvivorLifeTxt;
+    public Image SurvivorUI;
    /* private TextUI headshot;
     private TextUI playerKill;
     private TextUI towerKill;
@@ -47,6 +49,10 @@ public class UIManager : Flow {
         missionUI = UIVariables.uiLink.missionUI; 
         PseudoUI = UIVariables.uiLink.PseudoUI;
         bloodScreen = UIVariables.uiLink.bloodScreen;
+        NbAntidoteTxt = UIVariables.uiLink.NbAntidoteTxt;
+        SurvivorLifeTxt = UIVariables.uiLink.SurvivorLifeTxt;
+        SurvivorUI = UIVariables.uiLink.SurvivorUI;
+            
         PlayerStats.resetAllStats();
         InitScoreboard();
     }
@@ -61,6 +67,17 @@ public class UIManager : Flow {
         vie = Mathf.Clamp(vie, 0, 100);
         ImLife.fillAmount = (float)vie / 100;
         this.lifeUItxt.text = "VIE " + vie + "%";
+    }
+    
+    public void UpdateNbAtidote()
+    {
+        this.NbAntidoteTxt.text = "Antidotes : " + PlayerStats.NbAntidote + " / " + PlayerStats.RequireNbAntidote;   
+    }
+
+    public void UpdateSurvivor(float vie)
+    {
+        SurvivorUI.fillAmount = (float)vie;
+        this.SurvivorLifeTxt.text = "Survivant " + vie*100 + "%";
     }
     override public void Refresh() { }
 
