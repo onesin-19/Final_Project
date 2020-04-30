@@ -182,7 +182,7 @@ public class Main : MonoBehaviour
         PlayerManager.Instance.player.GetComponent<FirstPersonController>().enabled=false;
         if (!isWin)
         {
-            sceneTransition.loadMenuScene();
+            SceneManager.LoadScene("menu");
             Debug.Log("changement de scene");
             //SceneManager.LoadScene("menu");
             //isInMenuScene = true;
@@ -196,8 +196,7 @@ public class Main : MonoBehaviour
             }
             else if (currentSceneName=="level2")
             {
-                sceneTransition.loadScene3();
-                //SceneManager.LoadScene("level3");
+                SceneManager.LoadScene("level3");
             }
             else if (currentSceneName=="level3")
                 SceneManager.LoadScene("menu");

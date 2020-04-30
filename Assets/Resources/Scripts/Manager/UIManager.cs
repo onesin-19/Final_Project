@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
@@ -57,7 +58,7 @@ public class UIManager : Flow {
         InitScoreboard();
     }
     public void UpdateTxtCartouches (int cartouches, int maxcartouches,int chargeurs) {
-        this.ammo.text = "Munitoins : " + cartouches + "/" + maxcartouches;
+        this.ammo.text = "Munitions : " + cartouches + "/" + maxcartouches;
         this.recharge.text = "Chargeurs : " + (chargeurs>0?chargeurs:0);
         
     }
@@ -90,7 +91,7 @@ public class UIManager : Flow {
     private void InitScoreboard()
     {
         this.point.text = "Point : " + PlayerStats.Score;
-        this.ammo.text = "Munitoins : " + PlayerStats.ammunition;
+        this.ammo.text = "Munitions : " + PlayerStats.ammunition;
         this.recharge.text = "Chargeurs : " + PlayerStats.charge;
         PlayerStats.Hp = Mathf.Clamp(PlayerStats.Hp, 0, 100);
         ImLife.fillAmount = PlayerStats.Hp / 100;
@@ -160,6 +161,10 @@ public class UIManager : Flow {
     public void ChangeStatePauseMenu(bool active)
     {
         UIVariables.uiLink.PauseMenu.SetActive(active);
+        if (active)
+        {
+            EventSystem.current.SetSelectedGameObject(UIVariables.uiLink.PauseMenu);
+        }
     }
     public void HidePauseMenu()
     {

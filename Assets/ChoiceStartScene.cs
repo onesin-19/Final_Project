@@ -11,6 +11,7 @@ public class ChoiceStartScene : MonoBehaviour
     // Start is called before the first frame update
     public GameObject confirmbox;
     public Dropdown dropdownbox;
+    public GameObject soldat;
     void Start()
     {
         JsonListWrapper<User> us=JsonManager.JsonToStringList<User>("jsonSaveData.json");
@@ -19,7 +20,7 @@ public class ChoiceStartScene : MonoBehaviour
         if (connectUsers.users.Count==0)
         {
             DB_Manager.Instance.connect_BDD();
-            //SceneManager.LoadScene("login");
+            soldat.SetActive(true);
             GameVariables.Instance.sceneFader.FadeTo("login");
         }
         /*else if(connectUsers.users.Count==1)

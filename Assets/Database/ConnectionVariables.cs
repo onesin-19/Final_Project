@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class ConnectionVariables : MonoBehaviour
@@ -30,6 +31,8 @@ public class ConnectionVariables : MonoBehaviour
     public InputField LPseudo;
     public InputField LPassword;
     public Text LtxtInfos;
+    public GameObject RegisterBtn;
+    public GameObject LoginBtn;
 
     public void login()
     {
@@ -39,6 +42,7 @@ public class ConnectionVariables : MonoBehaviour
     public void Showlogin()
     {
         DB_Manager.Instance.ShowLogin();
+        EventSystem.current.SetSelectedGameObject(RegisterBtn);
     }
     
     public void Register()
@@ -49,5 +53,11 @@ public class ConnectionVariables : MonoBehaviour
     public void ShowRegister()
     {
         DB_Manager.Instance.ShowRegister();
+        EventSystem.current.SetSelectedGameObject(LoginBtn);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

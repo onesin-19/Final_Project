@@ -56,10 +56,11 @@ public class PauseManager : Flow
             Time.timeScale = 0f;
             PlayerManager.Instance.player.GetComponent<FirstPersonController>().UnlockMouse();
             PlayerManager.Instance.player.GetComponent<FirstPersonController>().enabled=false;
-
+            PlayerManager.Instance.player.transform.GetChild(0).gameObject.SetActive(false);
         }
         else
         {
+            PlayerManager.Instance.player.transform.GetChild(0).gameObject.SetActive(true);
             PlayerManager.Instance.player.GetComponent<FirstPersonController>().enabled=true;
             Time.timeScale = 1f;
         }
@@ -72,6 +73,7 @@ public class PauseManager : Flow
         Toggle();
         PlayerManager.Instance.player.GetComponent<FirstPersonController>().UnlockMouse();
         PlayerManager.Instance.player.GetComponent<FirstPersonController>().enabled=false;
+        PlayerManager.Instance.player.transform.GetChild(0).gameObject.SetActive(false);
         sceneFader.FadeTo(menuSceneName);
     }
 }

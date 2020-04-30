@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -9,7 +10,8 @@ public class ScriptMenu : MonoBehaviour
     public Text txtleaderboard;
     public GameObject panelButton;
     public GameObject panelBoard;
-    
+    public GameObject leaderboradBtn;
+    public GameObject ReturnBtn;
     public void PlayTheGame()
     {
         //SceneManager.LoadScene("level1");
@@ -32,6 +34,7 @@ public class ScriptMenu : MonoBehaviour
         string data = DB_Manager.Instance.LeaderBoard(5);
         /*GameObject.Find("leaderboardPanel")*/panelBoard.SetActive(true);
         /*GameObject.Find("buttonPanel")*/panelButton.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(ReturnBtn);
 
         txtleaderboard.text = data;
     }
@@ -39,6 +42,8 @@ public class ScriptMenu : MonoBehaviour
     {
         /*GameObject.Find("leaderboardPanel")*/panelBoard.SetActive(false);
         /*GameObject.Find("buttonPanel")*/panelButton.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(leaderboradBtn);
+
 
     }
 
