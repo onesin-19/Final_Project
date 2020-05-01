@@ -481,6 +481,8 @@ MonoBehaviour:
   isDead: 0
   bloodEffect: {fileID: 0}
   startHealth: 5
+  type: 0
+  value: 7
 --- !u!208 &8611598661778661264
 NavMeshObstacle:
   m_ObjectHideFlags: 0

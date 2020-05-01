@@ -74,6 +74,12 @@ public class UIManager : Flow {
     {
         this.NbAntidoteTxt.text = "Antidotes : " + PlayerStats.NbAntidote + " / " + PlayerStats.RequireNbAntidote;   
     }
+    
+    public void UpdatePoint(int value)
+    {
+        PlayerStats.addCurrency(value); 
+        point.text = "Point : " + PlayerStats.Score;
+    }
 
     public void UpdateSurvivor(float vie)
     {
@@ -99,48 +105,11 @@ public class UIManager : Flow {
         //this.missionUI.text = "MISSION : TROUVER LA CLEF POUR SORTIR VIVANT !!!" ;
         this.PseudoUI.text = "Pseudo : "+DB_Manager.Instance.IPseudo;
     }
-
-    public void TurningOff() {
-        this.point.gameObject.SetActive(false);
-        this.ammo.gameObject.SetActive(false);
-        this.recharge.gameObject.SetActive(false);
-        this.lifeUItxt.gameObject.SetActive(false);
-        this.missionUI.gameObject.SetActive(false);
-        this.PseudoUI.gameObject.SetActive(false);
-        this.bloodScreen.gameObject.SetActive(false);
-    }
-
-    public void TurningOn() {
-        this.point.gameObject.SetActive(true);
-        this.ammo.gameObject.SetActive(true);
-        this.recharge.gameObject.SetActive(true);
-        this.lifeUItxt.gameObject.SetActive(true);
-        this.missionUI.gameObject.SetActive(true);
-        this.PseudoUI.gameObject.SetActive(true);
-        this.bloodScreen.gameObject.SetActive(true);
-    }
-
-    public void ShowVictory() {
-        //UIVariables.uiLink.canvas.SetActive(false);
-        //UIVariables.uiLink.loseUI.SetActive(false);
-       //UIVariables.uiLink.winUI.SetActive(true);
-        //UIVariables.uiLink.fireworks.SetActive(true);
-        //UIVariables.uiLink.explosion.SetActive(false);
-    }
-
+    
     public void ShowBloodScreen()
     {
         bloodScreen.gameObject.SetActive(true);
     }
-
-    public void ShowDefeat() {
-        //UIVariables.uiLink.canvas.SetActive(true);
-       // UIVariables.uiLink.winUI.SetActive(false);
-        //UIVariables.uiLink.loseUI.SetActive(true);
-        //UIVariables.uiLink.explosion.SetActive(true);
-        //UIVariables.uiLink.fireworks.SetActive(false);
-    }
-
     public void HideUI() {
         UIVariables.uiLink.canvasPlayer.SetActive(false);
         //UIVariables.uiLink.canvasMission.SetActive(false);

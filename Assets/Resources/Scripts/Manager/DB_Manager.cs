@@ -339,7 +339,8 @@ public class DB_Manager : MonoBehaviour {
 
     public void savePoints()
     {
-        string cmd = "UPDATE `utilisateurs` SET `points`=" + IPoints + " WHERE `pseudo`='" + IPseudo + "'";
+        connect_BDD();
+        string cmd = "UPDATE `utilisateurs` SET `points`=" + PlayerStats.Score + " WHERE `pseudo`='" + IPseudo + "'";
         MySqlCommand CmdSql = new MySqlCommand(cmd, con);
 
         try
@@ -396,7 +397,8 @@ public class DB_Manager : MonoBehaviour {
                 u.isPlay = false;
             }
         }
-       
+
+        savePoints();
         Debug.Log("Application ending after " + Time.time + " seconds");
     }
     

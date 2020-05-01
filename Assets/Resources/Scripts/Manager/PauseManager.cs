@@ -74,6 +74,7 @@ public class PauseManager : Flow
         PlayerManager.Instance.player.GetComponent<FirstPersonController>().UnlockMouse();
         PlayerManager.Instance.player.GetComponent<FirstPersonController>().enabled=false;
         PlayerManager.Instance.player.transform.GetChild(0).gameObject.SetActive(false);
+        DB_Manager.Instance.savePoints();
         sceneFader.FadeTo(menuSceneName);
     }
 }

@@ -13,6 +13,7 @@ public class Tir : MonoBehaviour {
     public GameObject BulletHolePrefab, SparksPrefab;
     public bool Automatic = true, canFire=false;
     public GameObject explosionZone;
+    public AudioClip headshot;
     void Start()
     {
         //PanelUI = GameObject.Find("PanelUI");
@@ -79,15 +80,17 @@ public class Tir : MonoBehaviour {
                                 )
                                 {
                                     EnemyManager.Instance.killEnemy(hit.transform.gameObject);
+                                    GetComponent<AudioSource>().PlayOneShot(headshot);
                                 }
                                 else
                                 {
                                     EnemyManager.Instance.DamageEnemie(hit.transform.gameObject, PlayerStats.damage);
                                 }
 
+                                
                                 //hit.transform.gameObject.GetComponent<dead>().ennemiDead();
                             }
-
+                            
                             if (hit.transform.gameObject.tag == "decor")
                             {
                                 //bullet hole

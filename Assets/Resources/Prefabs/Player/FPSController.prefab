@@ -1076,6 +1076,7 @@ MonoBehaviour:
   canFire: 0
   explosionZone: {fileID: 1651934191892112831, guid: 1304e897cc5bd4d4396fb1488306321f,
     type: 3}
+  headshot: {fileID: 0}
 --- !u!82 &4057293733518165544
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2713,6 +2714,7 @@ MonoBehaviour:
   canFire: 0
   explosionZone: {fileID: 1651934191892112831, guid: 1304e897cc5bd4d4396fb1488306321f,
     type: 3}
+  headshot: {fileID: 8300000, guid: f1cf216165b4a3b48b70703916f820c1, type: 3}
 --- !u!82 &4057293733187267946
 AudioSource:
   m_ObjectHideFlags: 0

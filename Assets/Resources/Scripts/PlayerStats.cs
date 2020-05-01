@@ -5,17 +5,11 @@ using UnityEngine;
 public class PlayerStats 
 {
 
-    //public int initialCurrency = 100;
     public static float initialHp = 100;
     public static int startingLevel = 1;
     public static int damage = 3;
     public static int initScore = 0;
-
-
-    /*public static int Headshot { get; set; }
-    public static int PlayerKill { get; set; }
-    public static int TowerKill { get; set; }
-    public static int TotalKill { get { return PlayerKill + TowerKill; } }*/
+    
     public static int Score { get; set; }
     public static bool IsPlayerDead { get; set; }
     public static bool HasSaveSurvivor { get; set; } = true;
@@ -31,11 +25,14 @@ public class PlayerStats
 
     //No need to implement init for now... resetAllStats() does it.
 
+    public static void initialiazeScore()
+    {
+        Score = initScore;
+    }
     public static void resetAllStats()
     {
         IsPlayerDead = false;
         //Currency = initialCurrency;
-        Score = initScore;
         Hp = initialHp;
         CurrentLevel = startingLevel;
         HasSaveSurvivor = true;
@@ -62,10 +59,10 @@ public class PlayerStats
         private set { currentLevel = value; }
     }
 
-    /*public static void addCurrency(int amount)
+    public static void addCurrency(int amount)
     {
-        Currency += amount;
-    }*/
+        Score += amount;
+    }
 
     /*public static bool subtractCurrency(int amount)
     {
@@ -105,10 +102,5 @@ public class PlayerStats
             hp -= amount;
         }
     }
-
-    public static void nextLevel()
-    {
-        CurrentLevel++;
-    }
-
+    
 }

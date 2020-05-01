@@ -116,6 +116,7 @@ public class Main : MonoBehaviour
         {
             video = gameObject.GetComponent<VideoPlayer>();
             time = video.clip.length;
+            PlayerStats.initialiazeScore();
         }
         
 
@@ -182,6 +183,7 @@ public class Main : MonoBehaviour
         PlayerManager.Instance.player.GetComponent<FirstPersonController>().enabled=false;
         if (!isWin)
         {
+            DB_Manager.Instance.savePoints();
             SceneManager.LoadScene("menu");
             Debug.Log("changement de scene");
             //SceneManager.LoadScene("menu");
@@ -198,8 +200,11 @@ public class Main : MonoBehaviour
             {
                 SceneManager.LoadScene("level3");
             }
-            else if (currentSceneName=="level3")
+            else if (currentSceneName == "level3")
+            {
+                DB_Manager.Instance.savePoints();
                 SceneManager.LoadScene("menu");
+            }
             //sceneTransition.loadMenuScene();
             //sceneTransition.loadLevelScene();
             //isInMenuScene = false;

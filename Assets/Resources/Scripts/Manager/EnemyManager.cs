@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum EnemyType
 {
-    PARASITE, SIMPLE_1, SIMPLE_2, SLOW, BOSSPUG, BOSSCOW
+    PARASITE, JILL,BOSS
 }
 public class EnemyManager : Flow
 {
@@ -27,6 +27,7 @@ public class EnemyManager : Flow
     public List<Enemy> enemies;
     public Stack<Enemy> toRemove;
     public Stack<Enemy> toAdd;
+    int typeEnnemiToSpawn = 0;
     //AmbianceManager ambiance;
     
     public Dictionary<EnemyType, GameObject> enemyPrefabDict;
@@ -61,7 +62,8 @@ public class EnemyManager : Flow
 
     override public void Refresh()
     {
-        SpawnEnemy(EnemyType.PARASITE);
+        typeEnnemiToSpawn = (typeEnnemiToSpawn + 1) % enemyPrefabDict.Count;
+        SpawnEnemy((EnemyType)typeEnnemiToSpawn);
         foreach (Enemy e in enemies)
             if (!e.isDead)
             {
@@ -121,7 +123,6 @@ public class EnemyManager : Flow
                 e.type = type;
                 e.Initialize();
                 toAdd.Push(e);
-            
             }
         }
         //return GameObject.Instantiate(enemy, enemyStart.position, enemyStart.rotation);

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
 
@@ -22,6 +23,7 @@ public class Enemy : MonoBehaviour {
     private float health;
     public float startHealth = 5;
     public EnemyType type;
+    public int value;
     public void Initialize () {
         health = startHealth;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -32,15 +34,7 @@ public class Enemy : MonoBehaviour {
 	
 	
     public void Refresh () {
-        if(isDead)
-        {
-            float x, y;
-            x = GetComponent<CapsuleCollider>().center.x;
-            y = GetComponent<CapsuleCollider>().center.y;
-            GetComponent<CapsuleCollider>().center = new Vector3(x, y, anim.GetFloat("colz"));
-            //return;
-        }
-
+        
         if (SurvivorManager.Instance.survivor!=null)
         {
             if (Vector3.Distance(PlayerManager.Instance.player.transform.position, transform.position) <=
@@ -67,6 +61,8 @@ public class Enemy : MonoBehaviour {
             anim.SetBool("walk", true);
             anim.SetBool("attack", false);
             agent.SetDestination(target.transform.position);
+            if(anim.GetBool("hit"))
+                agent.SetDestination(transform.position);
             if(distance<attackDistance)
             {
                 anim.SetBool("attack", true);
@@ -109,7 +105,6 @@ public class Enemy : MonoBehaviour {
     public void ennemiDead () {
         isDead = true;
         gameObject.tag = "Untagged";
-        GetComponent<Rigidbody>().isKinematic = false;
         anim.SetTrigger("dead");
         anim.SetBool("attack", false);
         GetComponent<Enemy>().enabled = false;
@@ -118,6 +113,13 @@ public class Enemy : MonoBehaviour {
         AudioEnnemi.GetComponent<AudioSource>().Stop();
         AudioEnnemi.GetComponent<AudioSource>().PlayOneShot(soundDead);
         EnemyManager.Instance.EnemyDied(this);
+        UIManager.Instance.UpdatePoint(value);
+        
+        float x, z;
+        x = GetComponent<CapsuleCollider>().center.x;
+        z = GetComponent<CapsuleCollider>().center.z;
+        GetComponent<CapsuleCollider>().center = new Vector3(x,anim.GetFloat("colz"), z);
+        GetComponent<CapsuleCollider>().direction = 2;
     }
     public void TakeDamage(float amount)
     {
@@ -125,6 +127,7 @@ public class Enemy : MonoBehaviour {
         health -= amount;
         //anim.SetBool("iswalk", false);
         //anim.SetBool("isHit", true);
+        anim.SetBool("hit",true);
 
         //GameObject bEffect = (GameObject)Instantiate(bloodEffect, transform.position, Quaternion.identity);
         //Destroy(bEffect, 2f);
@@ -136,6 +139,8 @@ public class Enemy : MonoBehaviour {
     }
     public void kill()
     {
+        
+        UIManager.Instance.UpdatePoint(20);
         TakeDamage(health);
     }
     public void activationIskinematic()
