@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PauseManager : Flow
 {
@@ -56,11 +57,21 @@ public class PauseManager : Flow
             Time.timeScale = 0f;
             PlayerManager.Instance.player.GetComponent<FirstPersonController>().UnlockMouse();
             PlayerManager.Instance.player.GetComponent<FirstPersonController>().enabled=false;
-            PlayerManager.Instance.player.transform.GetChild(0).gameObject.SetActive(false);
+            PlayerManager.Instance.player.transform.GetChild(0).gameObject.transform.GetChild(0).GetComponent<Tir>().enabled=false;
+            PlayerManager.Instance.player.transform.GetChild(0).gameObject.transform.GetChild(0).GetComponent<AnimArme1>().enabled=false;
+            PlayerManager.Instance.player.transform.GetChild(0).gameObject.transform.GetChild(1).GetComponent<Tir>().enabled=false;
+            PlayerManager.Instance.player.transform.GetChild(0).gameObject.transform.GetChild(1).GetComponent<AnimArme2>().enabled=false;
+
         }
         else
         {
-            PlayerManager.Instance.player.transform.GetChild(0).gameObject.SetActive(true);
+            TimeManager.Instance.AddTimedAction(new TimedAction(() =>
+            {
+                PlayerManager.Instance.player.transform.GetChild(0).gameObject.transform.GetChild(0).GetComponent<Tir>().enabled=true;
+                PlayerManager.Instance.player.transform.GetChild(0).gameObject.transform.GetChild(0).GetComponent<AnimArme1>().enabled=true;
+                PlayerManager.Instance.player.transform.GetChild(0).gameObject.transform.GetChild(1).GetComponent<Tir>().enabled=true;
+                PlayerManager.Instance.player.transform.GetChild(0).gameObject.transform.GetChild(1).GetComponent<AnimArme2>().enabled=true;
+            }, Time.deltaTime));
             PlayerManager.Instance.player.GetComponent<FirstPersonController>().enabled=true;
             Time.timeScale = 1f;
         }
@@ -73,7 +84,10 @@ public class PauseManager : Flow
         Toggle();
         PlayerManager.Instance.player.GetComponent<FirstPersonController>().UnlockMouse();
         PlayerManager.Instance.player.GetComponent<FirstPersonController>().enabled=false;
-        PlayerManager.Instance.player.transform.GetChild(0).gameObject.SetActive(false);
+        PlayerManager.Instance.player.transform.GetChild(0).gameObject.transform.GetChild(0).GetComponent<Tir>().enabled=false;
+        PlayerManager.Instance.player.transform.GetChild(0).gameObject.transform.GetChild(0).GetComponent<AnimArme1>().enabled=false;
+        PlayerManager.Instance.player.transform.GetChild(0).gameObject.transform.GetChild(1).GetComponent<Tir>().enabled=false;
+        PlayerManager.Instance.player.transform.GetChild(0).gameObject.transform.GetChild(1).GetComponent<AnimArme2>().enabled=false;
         DB_Manager.Instance.savePoints();
         sceneFader.FadeTo(menuSceneName);
     }

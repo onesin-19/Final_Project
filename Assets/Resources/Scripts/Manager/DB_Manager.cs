@@ -77,7 +77,7 @@ public class DB_Manager : MonoBehaviour {
        
         MySqlConnectionStringBuilder conn_string = new MySqlConnectionStringBuilder();
         conn_string.Server = host;
-        conn_string.Port = 3307;
+        //conn_string.Port = 3307;
         conn_string.UserID = username;
         conn_string.Password = password;
         conn_string.Database = database;
@@ -135,7 +135,7 @@ public class DB_Manager : MonoBehaviour {
 
         if (!IsValidEmail(ConnectionVariables.instance.REmail.text))
         {
-            ConnectionVariables.instance.RtxtInfos.text = "Invalid Email";
+            ConnectionVariables.instance.RtxtInfos.text = "Email Invalide";
             cbEmail.normalColor = Color.red;
             ConnectionVariables.instance.REmail.colors = cbEmail;
             return false;
@@ -150,10 +150,10 @@ public class DB_Manager : MonoBehaviour {
         //Pseudo
         ColorBlock cbPseudo = ConnectionVariables.instance.RPseudo.colors;
 
-        if (!IsValidLenght(ConnectionVariables.instance.RPseudo.text, 5))
+        if (!IsValidLenght(ConnectionVariables.instance.RPseudo.text, 2))
         {
             cbPseudo.normalColor = Color.red;
-            ConnectionVariables.instance.RtxtInfos.text = "Pseudo Invalid";
+            ConnectionVariables.instance.RtxtInfos.text = "Pseudo Invalide. Au moins 2 caractères";
             ConnectionVariables.instance.RPseudo.colors = cbPseudo;
             return false;
         }
@@ -170,7 +170,7 @@ public class DB_Manager : MonoBehaviour {
         if (!IsValidLenght(ConnectionVariables.instance.RPassword.text, 5))
         {
             cbPassword.normalColor = Color.red;
-            ConnectionVariables.instance.RtxtInfos.text = "Password Invalid";
+            ConnectionVariables.instance.RtxtInfos.text = "Password Invalide";
             ConnectionVariables.instance.RPassword.colors = cbPassword;
             return false;
         }
@@ -185,7 +185,7 @@ public class DB_Manager : MonoBehaviour {
 
         if(!IsValidLenght(ConnectionVariables.instance.Rnom.text,0) || !IsValidLenght(ConnectionVariables.instance.Rprenom.text,0))
         {
-            ConnectionVariables.instance.RtxtInfos.text = "Empty not autorized";
+            ConnectionVariables.instance.RtxtInfos.text = "vide non autorisé";
             return false;
         }
 
@@ -204,7 +204,7 @@ public class DB_Manager : MonoBehaviour {
 
                 if(data !=null)
                 {
-                    ConnectionVariables.instance.RtxtInfos.text = "Pseudo Exist";
+                    ConnectionVariables.instance.RtxtInfos.text = "Pseudo Existe";
                     MyReader.Close();
                     return false;
                 }
@@ -376,11 +376,6 @@ public class DB_Manager : MonoBehaviour {
         }
     }
 
-    public void GetConnectUser()
-    {
-        
-    }
-
     public void deconnectUser()
     {
         SceneManager.LoadScene("login");
@@ -397,8 +392,10 @@ public class DB_Manager : MonoBehaviour {
                 u.isPlay = false;
             }
         }
-
-        savePoints();
+        string json = JsonManager.StringListToJSon(connectUsers.users);
+        JsonManager.SaveToStreamingAsset(json,"jsonSaveData.json");
+        if(PlayerStats.HasPlayed)
+            savePoints();
         Debug.Log("Application ending after " + Time.time + " seconds");
     }
     

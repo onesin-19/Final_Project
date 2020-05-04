@@ -60,7 +60,7 @@ public class Radar : MonoBehaviour
                 Vector3 radarPos= ro.owner.transform.position-playerPos.position;
                 float distToObject = Vector3.Distance(playerPos.position, ro.owner.transform.position) * mapScale;
                 float dy = Mathf.Atan2(radarPos.x, radarPos.z) * Mathf.Rad2Deg - 270 - playerPos.eulerAngles.y;
-                if (distToObject < 25)
+                if (distToObject <25)
                 {
                     radarPos.x = distToObject * Mathf.Cos(dy * Mathf.Deg2Rad) * -1;
                     radarPos.z = distToObject * Mathf.Sin(dy * Mathf.Deg2Rad);

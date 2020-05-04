@@ -40,7 +40,6 @@ public class Game : Flow
 
     override public void PreInitialize()
     {
-        //Grab instances
         logicManager = LogicManager.Instance;
         timeManager = TimeManager.Instance;
 
@@ -110,10 +109,7 @@ public class Game : Flow
             pauseManager.Refresh();
             playerManager.Refresh();
             inputManager.Refresh();
-
-            //towerManager.Refresh();
-            //trapManager.Refresh();
-
+            
             enemyManager.Refresh();
             if(IsThereSurvivor)
                 survivorManager.Refresh();
@@ -134,8 +130,6 @@ public class Game : Flow
             playerManager.PhysicsRefresh();
             inputManager.PhysicsRefresh();
 
-            //towerManager.PhysicsRefresh();
-            //trapManager.PhysicsRefresh();
             
             enemyManager.PhysicsRefresh();
             if(IsThereSurvivor)
@@ -173,14 +167,7 @@ public class Game : Flow
     {
 
     }
-
-    private void InitializeMap()
-    {
-        //Spawn player at position
-        SpawnPlayer();
-
-    }
-
+    
     private void DestroyMapVariables()
     {
 

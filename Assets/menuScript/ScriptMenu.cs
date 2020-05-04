@@ -12,6 +12,10 @@ public class ScriptMenu : MonoBehaviour
     public GameObject panelBoard;
     public GameObject leaderboradBtn;
     public GameObject ReturnBtn;
+    public GameObject panelControl;
+    public GameObject ReturnControlBtn;
+    public GameObject controlBtn;
+    
     public void PlayTheGame()
     {
         //SceneManager.LoadScene("level1");
@@ -32,19 +36,35 @@ public class ScriptMenu : MonoBehaviour
     public void Leaderboard()
     {
         string data = DB_Manager.Instance.LeaderBoard(5);
-        /*GameObject.Find("leaderboardPanel")*/panelBoard.SetActive(true);
-        /*GameObject.Find("buttonPanel")*/panelButton.SetActive(false);
+        panelBoard.SetActive(true);
+        panelButton.SetActive(false);
         EventSystem.current.SetSelectedGameObject(ReturnBtn);
 
         txtleaderboard.text = data;
     }
     public void Retour()
     {
-        /*GameObject.Find("leaderboardPanel")*/panelBoard.SetActive(false);
-        /*GameObject.Find("buttonPanel")*/panelButton.SetActive(true);
+        panelBoard.SetActive(false);
+        panelButton.SetActive(true);
         EventSystem.current.SetSelectedGameObject(leaderboradBtn);
 
 
+    }
+
+    public void RetourControl()
+    {
+        panelControl.SetActive(false);
+        panelButton.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(controlBtn);
+
+
+    }
+
+    public void Controle()
+    {
+        panelControl.SetActive(true);
+        panelButton.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(ReturnControlBtn);
     }
 
 }

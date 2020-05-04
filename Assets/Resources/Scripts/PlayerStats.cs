@@ -16,6 +16,8 @@ public class PlayerStats
 
     public static int RequireNbAntidote { get; set; } = 2;
     public static int NbAntidote { get; set; } = 0;
+    
+    public static bool HasPlayed { get; set; }
 
     //private static int currency = 100;
     private static float hp;
@@ -27,6 +29,7 @@ public class PlayerStats
 
     public static void initialiazeScore()
     {
+        HasPlayed = true;
         Score = initScore;
     }
     public static void resetAllStats()
