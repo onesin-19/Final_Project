@@ -22,7 +22,7 @@ public class AnimArme1 : MonoBehaviour {
 	void Update () {
 	
         //fire
-        if(Input.GetButton("Fire1"))
+        if(Input.GetButton("Fire1")&&!Anim.GetBool("run"))
         {
             if (!Anim.GetBool("target"))
             {
@@ -39,13 +39,13 @@ public class AnimArme1 : MonoBehaviour {
             else
             {
                if(GetComponent<Tir>().cartouches > 0)
-                {
-                    AnimFlamme2.SetBool("flamme", true);
-                }
-                else
-                {
-                    AnimFlamme2.SetBool("flamme", false);
-                }    
+               {
+                   AnimFlamme2.SetBool("flamme", true);
+               }
+               else
+               {
+                   AnimFlamme2.SetBool("flamme", false);
+               }    
             }
 
                     
@@ -108,7 +108,7 @@ public class AnimArme1 : MonoBehaviour {
 
     void zoomCam()
     {
-        curZoom-=1f;
+        curZoom-=2f;
         if (curZoom > zoom)
         {
             Camera.main.fieldOfView = curZoom;

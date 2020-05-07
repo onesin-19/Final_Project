@@ -142,10 +142,16 @@ public class Main : MonoBehaviour
                     PlayerManager.Instance.player.GetComponent<FirstPersonController>().UnlockMouse();
                     UIManager.Instance.HideUI();
                 }
+
+                if (Input.GetButtonDown("Submit"))
+                {
+                    SkipTrailer();
+                }
                
             }
             else
             {
+                PlayerStats.HasPlayed = true;
                 UIManager.Instance.HideCanvas();
                 currentFlow.Refresh();
                 canRefresh = true;

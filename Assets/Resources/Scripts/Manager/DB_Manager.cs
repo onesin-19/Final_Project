@@ -170,7 +170,7 @@ public class DB_Manager : MonoBehaviour {
         if (!IsValidLenght(ConnectionVariables.instance.RPassword.text, 5))
         {
             cbPassword.normalColor = Color.red;
-            ConnectionVariables.instance.RtxtInfos.text = "Password Invalide";
+            ConnectionVariables.instance.RtxtInfos.text = "Password Invalide. Minimum 5 caractères";
             ConnectionVariables.instance.RPassword.colors = cbPassword;
             return false;
         }
@@ -204,7 +204,7 @@ public class DB_Manager : MonoBehaviour {
 
                 if(data !=null)
                 {
-                    ConnectionVariables.instance.RtxtInfos.text = "Pseudo Existe";
+                    ConnectionVariables.instance.RtxtInfos.text = "Pseudo Existant";
                     MyReader.Close();
                     return false;
                 }

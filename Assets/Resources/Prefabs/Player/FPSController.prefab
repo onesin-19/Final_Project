@@ -1067,7 +1067,7 @@ MonoBehaviour:
   shootRate: 0.5
   nextFire: 0
   cartouches: 6
-  chargeurs: 3
+  chargeurs: 10
   max_cartouches: 6
   BulletHolePrefab: {fileID: 1000011474877646, guid: 4e6f078df2595dd48b2dbe42fc05cf81,
     type: 3}
@@ -2705,7 +2705,7 @@ MonoBehaviour:
   shootRate: 0.1
   nextFire: 0
   cartouches: 20
-  chargeurs: 3
+  chargeurs: 7
   max_cartouches: 20
   BulletHolePrefab: {fileID: 1000011474877646, guid: 4e6f078df2595dd48b2dbe42fc05cf81,
     type: 3}

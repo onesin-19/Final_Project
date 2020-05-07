@@ -48,6 +48,9 @@ public class TimeManager : Flow {
 
     private HashSet<TimedAction> actions;
     private HashSet<TimedAction> toRemoveActions;
+    
+    private float slowdownFactor=0.05f;
+    private float slowdownLenght=10000f;
 
     public override void PreInitialize() {
         actions = new HashSet<TimedAction>();
@@ -67,6 +70,7 @@ public class TimeManager : Flow {
 
         //Removed used actions
         CleanActionLists();
+        
     }
 
     public override void PhysicsRefresh() { }
@@ -91,5 +95,15 @@ public class TimeManager : Flow {
         this.toRemoveActions.Clear();
     }
 
+    public void DoSlowTime()
+    {
+        Time.timeScale = slowdownFactor;
+        Time.fixedDeltaTime = Time.timeScale * .02f;
+    }
 
+    public void updateTime()
+    {
+        Time.timeScale += (1 / slowdownLenght) * Time.unscaledTime;
+        Time.timeScale = Mathf.Clamp(Time.timeScale, 0, 1);
+    }
 }

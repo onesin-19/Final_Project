@@ -29,7 +29,6 @@ public class PlayerStats
 
     public static void initialiazeScore()
     {
-        HasPlayed = true;
         Score = initScore;
     }
     public static void resetAllStats()
@@ -39,7 +38,7 @@ public class PlayerStats
         Hp = initialHp;
         CurrentLevel = startingLevel;
         HasSaveSurvivor = true;
-        RequireNbAntidote = 2;
+        RequireNbAntidote = 5;
         NbAntidote = 0;
 
     }
@@ -66,20 +65,7 @@ public class PlayerStats
     {
         Score += amount;
     }
-
-    /*public static bool subtractCurrency(int amount)
-    {
-        if (Currency - amount < 0)
-        {
-            return false;
-        }
-        else
-        {
-            Currency -= amount;
-            return true;
-        }
-    }*/
-
+    
     public static void addHp(float amount)
     {
         Hp += amount;

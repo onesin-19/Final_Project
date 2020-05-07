@@ -50,7 +50,7 @@ public class Survivor : MonoBehaviour
         if (SurvivorManager.Instance.waypoints.Length > 0)
         {
 
-            if (agent.remainingDistance<= 1f)
+            if (Vector3.Distance(transform.position,target.position)<=1f)
             {
 
                 //if survivor is on the last waypoint
@@ -70,22 +70,23 @@ public class Survivor : MonoBehaviour
 
                 waypointIndex++;
                 target = SurvivorManager.Instance.waypoints[waypointIndex];
+                
             }
             
-           
+            agent.SetDestination(target.position);
         }
     }
 
     public void PhysicsRefresh() {
-        if (SurvivorManager.Instance.waypoints.Length > 0)
+        /*if (SurvivorManager.Instance.waypoints.Length > 0)
         {
             agent.SetDestination(target.position);
-            /*Vector3 dir = target.position - transform.position;
+            Vector3 dir = target.position - transform.position;
             transform.LookAt(target);
             
-            rb.MovePosition((dir.normalized )* (5 * Time.fixedDeltaTime) + rb.position);*/
+            rb.MovePosition((dir.normalized )* (5 * Time.fixedDeltaTime) + rb.position);
             
-        }
+        }*/
 
     }
     
@@ -107,7 +108,7 @@ public class Survivor : MonoBehaviour
     public void Dead () {
         isDead = true;
         gameObject.tag = "Untagged";
-        GetComponent<Rigidbody>().isKinematic = false;
+        //GetComponent<Rigidbody>().isKinematic = false;
         anim.SetTrigger("dead");
         anim.SetBool("run", false);
         //GetComponent<Survivor>().enabled = false;

@@ -48,6 +48,7 @@ public class ExplosionZone : MonoBehaviour
                 Destroy(barel);
                 GetComponent<AudioSource>().PlayOneShot(soundExplosion);
             }, 1f));
+            
         }
         foreach (Collider hit  in colliders) {
             /*if (hit.gameObject.tag == "ennemi")
@@ -65,6 +66,7 @@ public class ExplosionZone : MonoBehaviour
         }
         GameObject explosion= Instantiate(explosionPrefabs, transform.position, transform.rotation) as GameObject;
         Destroy(explosion, 2f);
+        TimeManager.Instance.DoSlowTime();
     }
 
     /*{

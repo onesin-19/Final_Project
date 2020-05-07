@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class ScriptMenu : MonoBehaviour
@@ -13,8 +14,9 @@ public class ScriptMenu : MonoBehaviour
     public GameObject leaderboradBtn;
     public GameObject ReturnBtn;
     public GameObject panelControl;
-    public GameObject ReturnControlBtn;
+    public GameObject clavierPanel;
     public GameObject controlBtn;
+    public Text txtTitle;
     
     public void PlayTheGame()
     {
@@ -55,6 +57,7 @@ public class ScriptMenu : MonoBehaviour
     {
         panelControl.SetActive(false);
         panelButton.SetActive(true);
+        txtTitle.text = "Survivor Zombie";
         EventSystem.current.SetSelectedGameObject(controlBtn);
 
 
@@ -64,7 +67,8 @@ public class ScriptMenu : MonoBehaviour
     {
         panelControl.SetActive(true);
         panelButton.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(ReturnControlBtn);
+        txtTitle.text = "Options";
+        EventSystem.current.SetSelectedGameObject(clavierPanel);
     }
 
 }

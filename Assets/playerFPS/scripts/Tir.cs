@@ -43,13 +43,12 @@ public class Tir : MonoBehaviour {
             canFire = false;
         }
         
-//        UIManager.Instance.UpdateTxtCartouches(cartouches, max_cartouches, chargeurs);
-
+        TimeManager.Instance.updateTime();
         switch (Automatic)
         {
             case true: //si Automatique
                 //Tir
-                if (Input.GetButton("Fire1") && cartouches > 0)
+                if (Input.GetButton("Fire1") && cartouches > 0&&!GetComponent<Animator>().GetBool("run"))
                 {
                     if (Time.time > nextFire)
                     {
@@ -57,14 +56,14 @@ public class Tir : MonoBehaviour {
                         UIManager.Instance.UpdateTxtCartouches(cartouches, max_cartouches, chargeurs);
                         //PanelUI.GetComponent<UiScript>().UpdateTxtCartouches(cartouches, max_cartouches, chargeurs);
 
-                        if (GetComponent<Animator>().GetBool("target"))
+                        /*if (GetComponent<Animator>().GetBool("target"))
                         {
                             shootRate = 0.5f;
                         }
                         else
                         {
                             shootRate = 0.08f;
-                        }
+                        }*/
                         nextFire = Time.time + shootRate;
 
                         GetComponent<AudioSource>().PlayOneShot(SoundShoot);
@@ -81,6 +80,7 @@ public class Tir : MonoBehaviour {
                                 {
                                     EnemyManager.Instance.killEnemy(hit.transform.gameObject);
                                     GetComponent<AudioSource>().PlayOneShot(headshot);
+                                    TimeManager.Instance.DoSlowTime();
                                 }
                                 else
                                 {

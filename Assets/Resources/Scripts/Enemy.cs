@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour {
     public float startHealth = 5;
     public EnemyType type;
     public int value;
+    public bool debug;
     public void Initialize () {
         health = startHealth;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -55,7 +56,7 @@ public class Enemy : MonoBehaviour {
         }
 
 
-        distance = Vector3.Distance(target.transform.position, transform.position);
+        distance = Vector2.Distance(new Vector2(target.transform.position.x,target.transform.position.z), new Vector2(transform.position.x,transform.position.z));
         if(distance<walkDistance&&!LogicManager.Instance.IsLevelWin&&!LogicManager.Instance.IsLevelLost)
         {
             anim.SetBool("walk", true);
@@ -77,7 +78,8 @@ public class Enemy : MonoBehaviour {
             anim.SetBool("attack",false);
             agent.SetDestination(transform.position);
         } 
-        
+        if(debug)
+            Debug.Log("agent "+agent.destination);
         
     }
 
@@ -145,6 +147,6 @@ public class Enemy : MonoBehaviour {
     }
     public void activationIskinematic()
     {
-        GetComponent<Rigidbody>().isKinematic = true;
+        //GetComponent<Rigidbody>().isKinematic = true;
     }
 }

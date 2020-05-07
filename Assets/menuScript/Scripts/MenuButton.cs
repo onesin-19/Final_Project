@@ -7,10 +7,8 @@ using UnityEngine.UI;
 
 public class MenuButton : MonoBehaviour
 {
-	//[SerializeField] UIButtonManager Controller;
 	[SerializeField] Animator animator;
 	[SerializeField] AnimatorFunctions animatorFunctions;
-	//[SerializeField] int thisIndex;
 	private Button b;
 
 	private void Start()
@@ -21,7 +19,7 @@ public class MenuButton : MonoBehaviour
 	// Update is called once per frame
     void Update()
     {
-		if(EventSystem.current.currentSelectedGameObject==gameObject/*Controller.index == thisIndex*/)
+		if(EventSystem.current.currentSelectedGameObject==gameObject)
 		{
 			animator.SetBool ("selected", true);
 			if(Input.GetButtonDown("Submit")){
