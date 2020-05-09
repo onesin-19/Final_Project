@@ -88,7 +88,7 @@ public class Main : MonoBehaviour
         //Scene Loading Delegate
         SceneManager.sceneLoaded += OnSceneLoaded;
         
-        if (SceneManager.GetActiveScene().name == "level2")
+        if (SceneManager.GetActiveScene().name == "level3")
             game.IsThereSurvivor = true;
         else
             game.IsThereSurvivor = false;

@@ -8,7 +8,7 @@ public class SurvivorManager  : Flow
     private GameObject medea;
     public Survivor survivor;
     private bool canEscape;
-    private float distanceToSave=6;
+    private float distanceToSave=10;
     
     #region Singleton
     static private SurvivorManager instance = null;

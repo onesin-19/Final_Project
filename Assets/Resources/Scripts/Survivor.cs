@@ -73,20 +73,19 @@ public class Survivor : MonoBehaviour
                 
             }
             
-            agent.SetDestination(target.position);
         }
     }
 
     public void PhysicsRefresh() {
-        /*if (SurvivorManager.Instance.waypoints.Length > 0)
+        if (SurvivorManager.Instance.waypoints.Length > 0)
         {
             agent.SetDestination(target.position);
-            Vector3 dir = target.position - transform.position;
+            /*Vector3 dir = target.position - transform.position;
             transform.LookAt(target);
             
-            rb.MovePosition((dir.normalized )* (5 * Time.fixedDeltaTime) + rb.position);
+            rb.MovePosition((dir.normalized )* (5 * Time.fixedDeltaTime) + rb.position);*/
             
-        }*/
+        }
 
     }
     

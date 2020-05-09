@@ -27,7 +27,8 @@ public class ScriptMenu : MonoBehaviour
 
     public void ExitGame()
     {
-        Application.Quit();
+        if(!Application.isEditor) { System.Diagnostics.Process.GetCurrentProcess().Kill(); }
+        //Application.Quit();
     }
 
     public void Deconnect()

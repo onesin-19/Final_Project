@@ -3127,7 +3127,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -4050,7 +4050,7 @@ MonoBehaviour:
   walkDistance: 150
   attackDistance: 1.5
   distance: 0
-  Damage: 10
+  Damage: 2
   soundAttack: {fileID: 8300000, guid: 27e4f20fca44a5946b38196a34a6db46, type: 3}
   minSpeed: 2
   maxSpeed: 3
@@ -4085,7 +4085,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8098770446594607121}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e98582373a55e19408293f610bc03d97, type: 3}
   m_Name: 

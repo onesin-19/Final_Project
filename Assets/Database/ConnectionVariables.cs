@@ -58,6 +58,7 @@ public class ConnectionVariables : MonoBehaviour
 
     public void Quit()
     {
-        Application.Quit();
+        if(!Application.isEditor) { System.Diagnostics.Process.GetCurrentProcess().Kill(); }
+        //Application.Quit();
     }
 }
